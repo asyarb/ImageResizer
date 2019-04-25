@@ -3,12 +3,15 @@ import { ThemeProvider } from 'emotion-theming'
 import styled from '@emotion/styled'
 
 import { GlobalStyle } from './GlobalStyle'
+import { ImageResizer } from './ImageResizer/ImageResizer'
 import { theme } from '../theme'
 
 export const App = () => (
   <ThemeProvider theme={theme}>
     <GlobalStyle />
-    <AppContainer>This is my moment</AppContainer>
+    <AppContainer>
+      <ImageResizer />
+    </AppContainer>
   </ThemeProvider>
 )
 
