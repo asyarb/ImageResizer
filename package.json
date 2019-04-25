@@ -3,6 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "main": "public/electron.js",
+  "homepage": "./",
+  "author": {
+    "name": "Anthony Yarbrough",
+    "email": "asyarb@hawaii.edu",
+    "url": "https://ayarbrough.com"
+  },
+  "build": {
+    "appId": "com.ayarbrough.image-resizer",
+    "productName": "ImageResizer",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
@@ -16,13 +37,23 @@
     "react-scripts": "3.0.0",
     "typeface-inter": "^3.5.0"
   },
+  "devDependencies": {
+    "@rescripts/cli": "^0.0.10",
+    "@rescripts/rescript-env": "^0.0.10",
+    "concurrently": "^4.1.0",
+    "electron": "^5.0.0",
+    "electron-builder": "^20.39.0",
+    "typescript": "^3.4.5",
+    "wait-on": "^3.2.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "develop": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "electron-dev": "concurrently \"yarn start\" \"wait-on http://localhost:3000 && electron .\""
+    "develop": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "electron-dev": "concurrently \"yarn develop\" \"wait-on http://localhost:3000 && electron .\"",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "build -w"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,11 +67,5 @@
       "last 1 chrome version",
       "last 1 firefox version"
     ]
-  },
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "electron": "^5.0.0",
-    "electron-builder": "^20.39.0",
-    "wait-on": "^3.2.0"
   }
 }
