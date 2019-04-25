@@ -47,10 +47,10 @@
     "wait-on": "^3.2.0"
   },
   "scripts": {
-    "develop": "rescripts start",
+    "develop-browser": "react-scripts start",
+    "develop-electron": "concurrently \"yarn rescripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "rescripts build",
     "test": "rescripts test",
-    "electron-dev": "concurrently \"yarn develop\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
     "electron-pack": "build -w"
