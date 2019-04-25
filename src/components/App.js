@@ -1,6 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from 'emotion-theming'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled/macro'
 
 import { GlobalStyle } from './GlobalStyle'
 import { theme } from '../theme'

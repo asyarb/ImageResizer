@@ -2,10 +2,12 @@
   "name": "image-resizer",
   "version": "0.1.0",
   "private": true,
+  "main": "public/electron.js",
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
     "delay": "^4.2.0",
+    "electron-is-dev": "^1.1.0",
     "emotion-theming": "^10.0.10",
     "minireset.css": "^0.0.4",
     "pica": "^5.0.0",
@@ -19,7 +21,8 @@
     "develop": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"yarn start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,8 +34,13 @@
     ],
     "development": [
       "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 firefox version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "electron": "^5.0.0",
+    "electron-builder": "^20.39.0",
+    "wait-on": "^3.2.0"
   }
 }
