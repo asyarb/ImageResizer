@@ -8,8 +8,8 @@ export const ImageResizer = () => {
 
   img.current = new Image()
 
-  const getSrcCanvas = ({ file }) => {
-    return new Promise(resolve => {
+  const getSrcCanvas = ({ file }) =>
+    new Promise(resolve => {
       const srcCanvas = document.createElement('canvas')
       const context = srcCanvas.getContext('2d')
 
@@ -24,7 +24,6 @@ export const ImageResizer = () => {
 
       img.current.src = URL.createObjectURL(file)
     })
-  }
 
   const drawResizedCanvas = async srcCanvas => {
     // resize the image and store it in canvasRef's buffer
@@ -40,6 +39,7 @@ export const ImageResizer = () => {
   }
 
   const handleFileUpload = async event => {
+    // TODO: handle bad/cancelled uploads
     const [file] = event.target.files
 
     // draw the uploaded file to an offscreen canvas
