@@ -1,6 +1,7 @@
 import React from 'react'
 import Pica from 'pica'
 
+// TODO: consider making srcCanvas state and cleanup in useEffect
 export const ImageResizer = () => {
   const [pica] = React.useState(() => new Pica())
   const img = React.useRef()
