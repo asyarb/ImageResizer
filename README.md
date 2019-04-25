@@ -1,3 +1,3 @@
 # Image Resizer
 
-Simple browser-only image resizer leveraging WASM and PICA.
+Electron app for image resizing leveraging WASM and PICA.
