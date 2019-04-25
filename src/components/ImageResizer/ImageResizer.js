@@ -35,7 +35,7 @@ export const ImageResizer = () => {
 
     // TODO:
     // Instead of drawing to canvasRef.current, draw it to another offscreen canvas
-    // Then use toBlob() to get a downloadable blob file.
+    // Then use toBlob() or toDataURL to get a downloadable blob file.
   }
 
   const handleFileUpload = async event => {
@@ -45,6 +45,9 @@ export const ImageResizer = () => {
     // draw the uploaded file to an offscreen canvas
     const srcCanvas = await getSrcCanvas({ file })
     await drawResizedCanvas(srcCanvas)
+
+    // cleanup the canvas we made.
+    srcCanvas.remove()
   }
 
   return (
