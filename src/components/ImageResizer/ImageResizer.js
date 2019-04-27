@@ -1,69 +1,74 @@
 import React from 'react'
+import { saveAs } from 'file-saver'
 import Pica from 'pica'
 
-// TODO: consider making srcCanvas state and cleanup in useEffect
+// TODO: handle bad/cancelled uploads
+// TODO: Better image compression with pica. Images can be bigger post resize LOL
 export const ImageResizer = () => {
   const [pica] = React.useState(() => new Pica())
-  const img = React.useRef()
-  const canvasRef = React.useRef()
 
-  img.current = new Image()
-
-  const getSrcCanvas = ({ file }) =>
+  // Given an image File, returns a canvas with that Image
+  // drawn to it.
+  const drawSrcCanvas = file =>
     new Promise(resolve => {
       const srcCanvas = document.createElement('canvas')
       const context = srcCanvas.getContext('2d')
 
-      img.current.onload = () => {
-        srcCanvas.width = img.current.width
-        srcCanvas.height = img.current.height
+      const img = new Image()
+      img.onload = () => {
+        srcCanvas.width = img.width
+        srcCanvas.height = img.height
 
-        context.drawImage(img.current, 0, 0)
+        context.drawImage(img, 0, 0)
 
         resolve(srcCanvas)
       }
 
-      img.current.src = URL.createObjectURL(file)
+      img.src = URL.createObjectURL(file)
     })
 
-  const drawResizedCanvas = async srcCanvas => {
-    // resize the image and store it in canvasRef's buffer
-    await pica.resize(srcCanvas, canvasRef.current)
+  // Given a canvas with an image, resizes the image and returns
+  // a new canvas with the same image with a smaller width and correct
+  // aspect ratio.
+  const drawResizedCanvas = async canvas => {
+    const desiredWidth = 600
+    const scaleFactor = canvas.width / desiredWidth
+    const desiredHeight = canvas.height / scaleFactor
 
-    // now draw the resize buffer
-    const context = canvasRef.current.getContext('2d')
-    context.drawImage(canvasRef.current, 0, 0)
+    const destCanvas = document.createElement('canvas')
+    destCanvas.width = desiredWidth
+    destCanvas.height = desiredHeight
+    const context = destCanvas.getContext('2d')
 
-    // TODO:
-    // Instead of drawing to canvasRef.current, draw it to another offscreen canvas
-    // Then use toBlob() or toDataURL to get a downloadable blob file.
+    await pica.resize(canvas, destCanvas)
+    context.drawImage(destCanvas, 0, 0)
+
+    return destCanvas
+  }
+
+  const downloadCanvasImage = async canvas => {
+    const blob = await pica.toBlob(canvas)
+
+    saveAs(blob, 'resized-image.png')
   }
 
   const handleFileUpload = async event => {
-    // TODO: handle bad/cancelled uploads
     const [file] = event.target.files
 
-    // draw the uploaded file to an offscreen canvas
-    const srcCanvas = await getSrcCanvas({ file })
-    await drawResizedCanvas(srcCanvas)
+    const srcCanvas = await drawSrcCanvas(file)
+    const destCanvas = await drawResizedCanvas(srcCanvas)
 
-    // cleanup the canvas we made.
+    await downloadCanvasImage(destCanvas)
+
     srcCanvas.remove()
+    destCanvas.remove()
   }
 
   return (
-    <>
-      <input
-        type="file"
-        accept="image/png, image/jpeg"
-        onChange={handleFileUpload}
-      />
-      <canvas
-        width="400px"
-        height="300px"
-        ref={canvasRef}
-        style={{ background: 'black', marginRight: '50px' }}
-      />
-    </>
+    <input
+      type="file"
+      accept="image/png, image/jpeg"
+      onChange={handleFileUpload}
+    />
   )
 }

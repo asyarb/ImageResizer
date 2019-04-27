@@ -30,6 +30,7 @@
     "delay": "^4.2.0",
     "electron-is-dev": "^1.1.0",
     "emotion-theming": "^10.0.10",
+    "file-saver": "^2.0.1",
     "minireset.css": "^0.0.4",
     "pica": "^5.0.0",
     "react": "^16.8.6",
@@ -53,7 +54,7 @@
     "test": "rescripts test",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-pack": "build -w"
+    "electron-pack": "build -mw"
   },
   "eslintConfig": {
     "extends": "react-app"
