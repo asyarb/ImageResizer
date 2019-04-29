@@ -35,6 +35,11 @@ export const GlobalStyle = () => {
           color: inherit;
           cursor: pointer;
         }
+        button {
+          font: inherit;
+          background: transparent;
+          border: none;
+        }
       `}
     />
   )

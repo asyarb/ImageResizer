@@ -14,6 +14,7 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
     },
+    backgroundColor: '#fff',
   })
   mainWindow.loadURL(
     isDev

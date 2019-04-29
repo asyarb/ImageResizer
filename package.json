@@ -27,7 +27,8 @@
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
-    "delay": "^4.2.0",
+    "@uppy/core": "^1.0.0",
+    "@uppy/react": "^1.0.0",
     "electron-is-dev": "^1.1.0",
     "emotion-theming": "^10.0.10",
     "file-saver": "^2.0.1",
