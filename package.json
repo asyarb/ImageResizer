@@ -1,6 +1,6 @@
 {
   "name": "image-resizer",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",
@@ -10,6 +10,9 @@
     "url": "https://ayarbrough.com"
   },
   "build": {
+    "nsis": {
+      "oneClick": false
+    },
     "appId": "com.ayarbrough.image-resizer",
     "productName": "ImageResizer",
     "copyright": "Copyright © 2019 ${author}",
