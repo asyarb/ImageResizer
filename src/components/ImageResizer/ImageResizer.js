@@ -59,18 +59,25 @@ export const ImageResizer = ({ resizeWidth }) => {
     [pica, resizeWidth]
   )
 
-  const downloadCanvasImageNode = useCallback(async ({ canvas, fileName }) => {
-    const imgBase64 = canvas.toDataURL('image/jpeg', 0.75)
+  const downloadCanvasImageNode = useCallback(
+    async ({ canvas, fileName }) => {
+      const imgBase64 = canvas.toDataURL('image/jpeg', 0.75)
 
-    const data = imgBase64.replace(/^data:image\/\w+;base64,/, '')
-    const buffer = Buffer.from(data, 'base64')
+      const data = imgBase64.replace(/^data:image\/\w+;base64,/, '')
+      const buffer = Buffer.from(data, 'base64')
 
-    const userDownloadsDir = path.join(os.homedir(), 'Downloads')
+      const userDownloadsDir = path.join(os.homedir(), 'Downloads')
 
-    fs.writeFile(`${userDownloadsDir}/resized_${fileName}.jpg`, buffer, err => {
-      if (err) return
-    })
-  }, [])
+      fs.writeFile(
+        `${userDownloadsDir}/${resizeWidth}px_${fileName}.jpg`,
+        buffer,
+        err => {
+          if (err) return
+        }
+      )
+    },
+    [resizeWidth]
+  )
 
   const resizeAndDownloadImage = useCallback(
     async file => {
