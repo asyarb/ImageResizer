@@ -15,7 +15,6 @@ const createWindow = () => {
       nodeIntegration: true,
     },
     backgroundColor: '#fff',
-    icon: path.join(__dirname, 'assets/icons/png/64x64.png'),
   })
   mainWindow.loadURL(
     isDev
