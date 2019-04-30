@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import { saveAs } from 'file-saver'
 import Pica from 'pica'
 import Uppy from '@uppy/core'
 import { Dashboard } from '@uppy/react'
+
+import fs from 'fs'
+import os from 'os'
+import path from 'path'
 
 import '@uppy/core/dist/style.css'
 import '@uppy/dashboard/dist/style.css'
@@ -13,8 +16,6 @@ export const ImageResizer = ({ resizeWidth }) => {
   const [pica] = useState(() => new Pica())
   const [uppy, setUppy] = useState(null)
 
-  // Given an image File, returns a canvas with that Image
-  // drawn to it.
   const drawSrcCanvas = useCallback(
     file =>
       new Promise((resolve, reject) => {
@@ -40,9 +41,6 @@ export const ImageResizer = ({ resizeWidth }) => {
     [resizeWidth]
   )
 
-  // Given a canvas with an image, resizes the image and returns
-  // a new canvas with the same image with a smaller width and correct`
-  // aspect ratio.
   const drawResizedCanvas = useCallback(
     async canvas => {
       const scaleFactor = canvas.width / resizeWidth
@@ -61,14 +59,18 @@ export const ImageResizer = ({ resizeWidth }) => {
     [pica, resizeWidth]
   )
 
-  const downloadCanvasImage = useCallback(
-    async canvas => {
-      const blob = await pica.toBlob(canvas, 'image/jpeg', 0.75)
+  const downloadCanvasImageNode = useCallback(async ({ canvas, fileName }) => {
+    const imgBase64 = canvas.toDataURL('image/jpeg', 0.75)
 
-      saveAs(blob, 'resized-image.jpg')
-    },
-    [pica]
-  )
+    const data = imgBase64.replace(/^data:image\/\w+;base64,/, '')
+    const buffer = Buffer.from(data, 'base64')
+
+    const userDownloadsDir = path.join(os.homedir(), 'Downloads')
+
+    fs.writeFile(`${userDownloadsDir}/resized_${fileName}.jpg`, buffer, err => {
+      if (err) return
+    })
+  }, [])
 
   const resizeAndDownloadImage = useCallback(
     async file => {
@@ -76,16 +78,21 @@ export const ImageResizer = ({ resizeWidth }) => {
         const srcCanvas = await drawSrcCanvas(file)
         const destCanvas = await drawResizedCanvas(srcCanvas)
 
-        await downloadCanvasImage(destCanvas)
+        await downloadCanvasImageNode({
+          canvas: destCanvas,
+          fileName: file.name,
+        })
 
         srcCanvas.remove()
         destCanvas.remove()
       } catch (errorCanvas) {
-        // If there is an error, just download the same image back.
-        await downloadCanvasImage(errorCanvas)
+        await downloadCanvasImageNode({
+          canvas: errorCanvas,
+          fileName: file.name,
+        })
       }
     },
-    [downloadCanvasImage, drawResizedCanvas, drawSrcCanvas]
+    [downloadCanvasImageNode, drawResizedCanvas, drawSrcCanvas]
   )
 
   const handleFileUpload = useCallback(
@@ -115,7 +122,12 @@ export const ImageResizer = ({ resizeWidth }) => {
       width="100%"
       height="100vh"
       proudlyDisplayPoweredByUppy={false}
-      note={`Providing an image will resize it to ${resizeWidth}px then download it to your computer.`}
+      note={`Uploading an image will resize it to ${resizeWidth}px then download it to your computer's "Downloads" folder.`}
+      locale={{
+        strings: {
+          dropPaste: 'Drag and drop, paste, or %{browse} for images here.',
+        },
+      }}
     />
   ) : (
     <Placeholder />

@@ -20,16 +20,16 @@ export const App = () => {
           <SizeButtons>
             <Button onClick={() => setResizeWidth(2000)}>
               <ImageIcon />
-              Large Image
+              Large (2000px)
             </Button>
             <SecondaryButton onClick={() => setResizeWidth(500)}>
               <ImageIcon />
-              Small Image
+              Small (500px)
             </SecondaryButton>
           </SizeButtons>
           <Disclaimer>
             If an uploaded image is already smaller than the above size, it will
-            be re-downloaded as is.
+            be processed as is.
           </Disclaimer>
         </Controls>
       </AppContainer>

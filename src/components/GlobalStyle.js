@@ -40,6 +40,10 @@ export const GlobalStyle = () => {
           background: transparent;
           border: none;
         }
+        .uppy-DashboardItem-statusSize,
+        .uppy-DashboardItem-action {
+          display: none;
+        }
       `}
     />
   )
