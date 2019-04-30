@@ -9,21 +9,19 @@ let mainWindow
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    width: 900,
-    height: 680,
+    width: 1280,
+    height: 720,
     webPreferences: {
       nodeIntegration: true,
     },
     backgroundColor: '#fff',
+    icon: path.join(__dirname, 'assets/icons/png/64x64.png'),
   })
   mainWindow.loadURL(
     isDev
       ? 'http://localhost:3000'
       : `file://${path.join(__dirname, '../build/index.html')}`
   )
-  if (isDev) {
-    mainWindow.webContents.openDevTools()
-  }
   mainWindow.on('closed', () => (mainWindow = null))
 }
 
