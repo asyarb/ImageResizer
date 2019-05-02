@@ -60,8 +60,8 @@ export const ImageResizer = ({ resizeWidth }) => {
   )
 
   const downloadCanvasImageNode = useCallback(
-    async ({ canvas, fileName }) => {
-      const imgBase64 = canvas.toDataURL('image/jpeg', 0.75)
+    async ({ canvas, fileName, mimeType }) => {
+      const imgBase64 = canvas.toDataURL(mimeType, 0.75)
 
       const data = imgBase64.replace(/^data:image\/\w+;base64,/, '')
       const buffer = Buffer.from(data, 'base64')
@@ -69,7 +69,7 @@ export const ImageResizer = ({ resizeWidth }) => {
       const userDownloadsDir = path.join(os.homedir(), 'Downloads')
 
       fs.writeFile(
-        `${userDownloadsDir}/${resizeWidth}px_${fileName}.jpg`,
+        `${userDownloadsDir}/${resizeWidth}px_${fileName}`,
         buffer,
         err => {
           if (err) return
@@ -88,6 +88,7 @@ export const ImageResizer = ({ resizeWidth }) => {
         await downloadCanvasImageNode({
           canvas: destCanvas,
           fileName: file.name,
+          mimeType: file.type,
         })
 
         srcCanvas.remove()
