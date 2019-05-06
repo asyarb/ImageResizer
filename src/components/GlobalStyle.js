@@ -1,8 +1,6 @@
 import React from 'react'
 import { Global, css } from '@emotion/core'
 
-import { theme as t } from '../theme'
-
 export const GlobalStyle = () => {
   return (
     <Global
@@ -25,8 +23,8 @@ export const GlobalStyle = () => {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
             Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
             sans-serif;
-          background: ${t.c.white};
-          color: ${t.c.black};
+          background: #fff;
+          color: #2d3748;
           overflow-x: hidden;
         }
         a {

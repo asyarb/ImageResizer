@@ -5,6 +5,13 @@ import * as serviceWorker from './serviceWorker'
 import 'minireset.css'
 import 'typeface-inter'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import { ResizerProvider } from './components/ResizerProvider'
+
+ReactDOM.render(
+  <ResizerProvider>
+    <App />
+  </ResizerProvider>,
+  document.getElementById('root')
+)
 
 serviceWorker.unregister()
