@@ -136,6 +136,6 @@ const model = {
 
 const store = createStore(model)
 
-export const ResizerProvider = ({ children }) => {
-  return <StoreProvider store={store}>{children}</StoreProvider>
-}
+export const ResizerProvider = ({ children }) => (
+  <StoreProvider store={store}>{children}</StoreProvider>
+)
