@@ -44,7 +44,8 @@ const actions = {
   })),
   setFilesSmart: action((state, payload) => ({
     ...state,
-    files: Array.from(payload),
+    stage: 'UPLOADED_FILES',
+    files: payload,
   })),
   resetFiles: action(state => ({
     ...state,

@@ -4,12 +4,14 @@ import styled from '@emotion/styled/macro'
 
 import { ReactComponent as ImageIcon } from '../assets/image-icon.svg'
 import { ReactComponent as CheckIcon } from '../assets/check-circle.svg'
+import { ReactComponent as ArrowIcon } from '../assets/arrow-right-circle.svg'
 import AppIconImg from '../assets/icon.png'
 
 export const Controls = () => {
-  const { resizeFiles, setResizeWidth } = useActions(actions => ({
+  const { resizeFiles, setResizeWidth, resetFiles } = useActions(actions => ({
     resizeFiles: actions.resizeFiles,
     setResizeWidth: actions.setResizeWidth,
+    resetFiles: actions.resetFiles,
   }))
 
   const { stage, resizeWidth } = useStore(state => ({
@@ -18,6 +20,7 @@ export const Controls = () => {
   }))
 
   const isShowingControls = ['INIT', 'DRAGGING_OVER'].includes(stage)
+  const isShowingConfirm = ['UPLOADED_FILES', 'RESIZING'].includes(stage)
 
   return (
     <ControlsContainer>
@@ -25,26 +28,40 @@ export const Controls = () => {
       <Heading>
         Resizing to: <strong>{resizeWidth}px</strong>
       </Heading>
-      {isShowingControls ? (
+      {isShowingControls && (
         <SizeButtons>
-          <Button onClick={() => setResizeWidth(2000)}>
+          <Button
+            onClick={() => setResizeWidth(2000)}
+            isActive={resizeWidth === 2000}
+          >
             <ImageIcon />
             Large
           </Button>
-          <SecondaryButton onClick={() => setResizeWidth(500)}>
+          <Button
+            onClick={() => setResizeWidth(500)}
+            isActive={resizeWidth === 500}
+          >
             <ImageIcon />
             Small
-          </SecondaryButton>
+          </Button>
         </SizeButtons>
-      ) : (
+      )}
+
+      {isShowingConfirm && (
         <ConfirmButton onClick={resizeFiles}>
           <CheckIcon />
           Resize
         </ConfirmButton>
       )}
+
+      {stage === 'FINISHED' && (
+        <ResizeMoreButton onClick={resetFiles}>
+          <ArrowIcon /> Resize More
+        </ResizeMoreButton>
+      )}
       <Disclaimer>
-        If an uploaded image is already smaller than the above size, it will be
-        processed as is.
+        If an uploaded image is already smaller than the selected size, it will
+        be processed as is.
       </Disclaimer>
     </ControlsContainer>
   )
@@ -78,7 +95,7 @@ const Disclaimer = styled.p`
   line-height: 1.75;
   max-width: 40ch;
   margin: 0 auto;
-  color: #525f7f;
+  color: #a0aec0;
   font-size: 1.7rem;
 `
 
@@ -92,9 +109,12 @@ const SizeButtons = styled.div`
 const Button = styled.button`
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, #869aff, #5468ff);
+  background: ${p =>
+    p.isActive
+      ? 'linear-gradient(180deg, #869aff, #5468ff)'
+      : 'linear-gradient(180deg, #fff, #f5f5fa)'};
   padding: 1.5rem 3rem;
-  color: #fff;
+  color: ${p => (p.isActive ? '#fff' : '#3a416f')};
   font-weight: 600;
   box-shadow: 0 4px 11px 0 rgba(37, 44, 97, 0.15),
     0 1px 3px 0 rgba(93, 100, 148, 0.2);
@@ -115,23 +135,30 @@ const Button = styled.button`
     transform: translateY(1px);
   }
 
+  &:last-of-type {
+    margin: 0;
+  }
+
   svg {
     width: 24px;
     height: 24px;
     color: currentColor;
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     flex-shrink: 0;
   }
 `
 
-const SecondaryButton = styled(Button)`
-  background: linear-gradient(180deg, #fff, #f5f5fa);
-  color: #3a416f;
-  margin: 0;
-`
-
 const ConfirmButton = styled(Button)`
   background: linear-gradient(180deg, #68d391, #38a169);
-  margin: 0 auto 3rem;
   width: min-content;
+  color: #fff;
+
+  &:last-of-type {
+    margin: 0 auto 3rem;
+  }
+`
+
+const ResizeMoreButton = styled(ConfirmButton)`
+  background: linear-gradient(180deg, #7f9cf5, #5a67d8);
+  width: auto;
 `

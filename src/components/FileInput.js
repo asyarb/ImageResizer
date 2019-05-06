@@ -4,6 +4,8 @@ import styled from '@emotion/styled/macro'
 
 import { FileList } from './FileList'
 import { DropZone } from './DropZone'
+import { Spinner } from './Spinner'
+import { Success } from './Success'
 import { ReactComponent as ArrowIconBG } from '../assets/arrow-down-circle.svg'
 
 export const FileInput = props => {
@@ -17,8 +19,8 @@ export const FileInput = props => {
 
       {isShowingDropZone && <DropZone />}
       {stage === 'UPLOADED_FILES' && <FileList />}
-      {stage === 'RESIZING' && <div>Loading...</div>}
-      {stage === 'FINISHED' && <div>Finished!</div>}
+      {stage === 'RESIZING' && <Spinner size="8rem" />}
+      {stage === 'FINISHED' && <Success />}
     </Container>
   )
 }
@@ -28,7 +30,7 @@ const Container = styled.div`
   position: relative;
   padding: ${p => (p.hasPadding ? '2rem' : null)};
 
-  svg {
+  > svg {
     position: absolute;
     width: 60%;
     height: 60%;
