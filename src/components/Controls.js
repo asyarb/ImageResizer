@@ -19,7 +19,11 @@ export const Controls = () => {
     resizeWidth: state.resizeWidth,
   }))
 
-  const isShowingControls = ['INIT', 'DRAGGING_OVER'].includes(stage)
+  const isShowingControls = [
+    'INIT',
+    'DRAGGING_OVER',
+    'UPLOADED_FILES',
+  ].includes(stage)
   const isShowingConfirm = ['UPLOADED_FILES', 'RESIZING'].includes(stage)
 
   return (
@@ -84,7 +88,7 @@ const ControlsContainer = styled.aside`
 const Heading = styled.h2`
   font-size: 3.5rem;
   font-weight: 500;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
 
   strong {
     color: #3ab2bd;
@@ -113,7 +117,7 @@ const Button = styled.button`
     p.isActive
       ? 'linear-gradient(180deg, #869aff, #5468ff)'
       : 'linear-gradient(180deg, #fff, #f5f5fa)'};
-  padding: 1.5rem 3rem;
+  padding: 0.75rem 2rem;
   color: ${p => (p.isActive ? '#fff' : '#3a416f')};
   font-weight: 600;
   box-shadow: 0 4px 11px 0 rgba(37, 44, 97, 0.15),
@@ -152,6 +156,7 @@ const ConfirmButton = styled(Button)`
   background: linear-gradient(180deg, #68d391, #38a169);
   width: min-content;
   color: #fff;
+  padding: 1.5rem 3rem;
 
   &:last-of-type {
     margin: 0 auto 3rem;
