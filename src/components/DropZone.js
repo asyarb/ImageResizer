@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { useStore, useActions } from 'easy-peasy'
 import styled from '@emotion/styled/macro'
 import { useSpring, a, config } from 'react-spring'
@@ -10,49 +10,37 @@ export const DropZone = props => {
     setFilesSmart: actions.setFilesSmart,
   }))
 
-  const getCleanedFiles = useCallback(fileList => {
+  const getCleanedFiles = fileList => {
     const arr = Array.from(fileList)
 
     return arr.filter(file =>
       ['image/jpeg', 'image/png', 'image/bmp', 'image/webp'].includes(file.type)
     )
-  }, [])
+  }
 
-  const handleDragLeave = useCallback(
-    e => {
-      e.preventDefault()
-      setStage('INIT')
-    },
-    [setStage]
-  )
+  const handleDragLeave = e => {
+    e.preventDefault()
+    setStage('INIT')
+  }
 
-  const handleDragOver = useCallback(
-    e => {
-      e.preventDefault()
-      setStage('DRAGGING_OVER')
-    },
-    [setStage]
-  )
+  const handleDragOver = e => {
+    e.preventDefault()
+    setStage('DRAGGING_OVER')
+  }
 
-  const handleDrop = useCallback(
-    e => {
-      e.preventDefault()
+  const handleDrop = e => {
+    e.preventDefault()
 
-      const cleanedFiles = getCleanedFiles(e.dataTransfer.files)
-      setFilesSmart(cleanedFiles)
-    },
-    [getCleanedFiles, setFilesSmart]
-  )
+    const cleanedFiles = getCleanedFiles(e.dataTransfer.files)
+    setFilesSmart(cleanedFiles)
+  }
 
-  const handleFile = useCallback(
-    e => {
-      e.preventDefault()
+  const handleFile = e => {
+    e.preventDefault()
 
-      const cleanedFiles = getCleanedFiles(e.target.files)
-      setFilesSmart(cleanedFiles)
-    },
-    [getCleanedFiles, setFilesSmart]
-  )
+    const cleanedFiles = getCleanedFiles(e.target.files)
+    setFilesSmart(cleanedFiles)
+  }
 
   const shouldShowText = Boolean(stage === 'INIT')
 
