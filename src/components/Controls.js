@@ -2,7 +2,6 @@ import React from 'react'
 import { useStore, useActions } from 'easy-peasy'
 import styled from '@emotion/styled/macro'
 
-import { ReactComponent as ImageIcon } from '../assets/image-icon.svg'
 import { ReactComponent as CheckIcon } from '../assets/check-circle.svg'
 import { ReactComponent as ArrowIcon } from '../assets/arrow-right-circle.svg'
 
@@ -28,7 +27,7 @@ export const Controls = () => {
   return (
     <ControlsContainer>
       <Heading>
-        Current size: <strong>{resizeWidth}px</strong>
+        Size: <strong>{resizeWidth}px</strong>
       </Heading>
       {isShowingControls && (
         <SizeButtons>
@@ -36,14 +35,12 @@ export const Controls = () => {
             onClick={() => setResizeWidth(2000)}
             isActive={resizeWidth === 2000}
           >
-            <ImageIcon />
             Large
           </Button>
           <Button
             onClick={() => setResizeWidth(500)}
             isActive={resizeWidth === 500}
           >
-            <ImageIcon />
             Small
           </Button>
         </SizeButtons>
@@ -74,12 +71,12 @@ const ControlsContainer = styled.aside`
 `
 
 const Heading = styled.h2`
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   color: #525f7f;
 
   strong {
-    color: #3ab2bd;
-    font-size: 2rem;
+    font-size: 1.6rem;
+    color: #32325d;
   }
 `
 
@@ -90,8 +87,7 @@ const SizeButtons = styled.div`
 `
 
 const Button = styled.button`
-  display: flex;
-  align-items: center;
+  display: block;
   background: ${p =>
     p.isActive
       ? 'linear-gradient(180deg, #869aff, #5468ff)'
@@ -106,6 +102,7 @@ const Button = styled.button`
   transition: box-shadow 0.2s ease, transform 0.2s ease;
   margin-right: 1.5rem;
   outline: none;
+  font-size: 1.4rem;
 
   &:hover,
   &:focus {
@@ -123,8 +120,8 @@ const Button = styled.button`
   }
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     color: currentColor;
     margin-right: 0.5rem;
     flex-shrink: 0;

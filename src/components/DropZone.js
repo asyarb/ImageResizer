@@ -94,7 +94,8 @@ const DropZoneContainer = styled.div`
 `
 
 const Heading = styled(a.h1)`
-  font-size: 1.8rem;
+  font-size: 1.7rem;
+  font-weight: 500;
   max-width: 25ch;
   margin: 0 auto;
   text-align: center;

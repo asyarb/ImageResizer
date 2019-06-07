@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useStore, useActions } from 'easy-peasy'
 import styled from '@emotion/styled/macro'
 import { useTrail, a, config } from 'react-spring'
@@ -8,7 +8,7 @@ const File = ({ file, src, ...props }) => {
   const imgRef = useRef()
   const [dimensions, setDimensions] = useState(null)
   const { name, size } = file
-  const sizeString = useMemo(() => prettyBytes(size), [size])
+  const sizeString = () => prettyBytes(size)
 
   useEffect(() => {
     const imgDomNode = imgRef.current
