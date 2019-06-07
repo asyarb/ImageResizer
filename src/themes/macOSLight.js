@@ -9,11 +9,14 @@ export const macOSLightTheme = {
     white: '#fff',
     black: 'rgb(28, 28, 28)',
     window: {
-      0: 'rgb(236, 236, 236)',
-      10: 'rgba(0, 0, 0, 0.04)',
+      90: 'rgb(233, 233, 233)',
+      80: 'rgb(224, 224, 224)',
+      70: 'rgb(215, 215, 216)',
     },
     gray: {
       90: 'rgb(240, 240, 240)',
+      70: 'rgb(209, 209, 209)',
+      60: 'rgb(175, 175, 175)',
     },
     blue: {
       90: 'rgb(108, 179, 250)',
@@ -65,6 +68,6 @@ export const macOSLightTheme = {
     midHigh:
       '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04',
     high: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-    inset: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+    inset: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.1)',
   },
 }

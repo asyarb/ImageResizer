@@ -3,6 +3,8 @@ import { useStore, useActions } from 'easy-peasy'
 import styled from '@xstyled/styled-components'
 import { useSpring, a, config } from 'react-spring'
 
+import { ReactComponent as ArrowIconBG } from '../assets/arrow-down-circle.svg'
+
 export const DropZone = props => {
   const stage = useStore(state => state.stage)
   const { setStage, setFilesSmart } = useActions(actions => ({
@@ -72,25 +74,35 @@ export const DropZone = props => {
         multiple={true}
         onInput={handleFile}
       />
+
+      <ArrowIconBG />
     </DropZoneContainer>
   )
 }
 
 const DropZoneContainer = styled.div`
   display: flex;
+  background-color: window.70;
   position: relative;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  border: ${p =>
-    p.stage === 'INIT'
-      ? '2px dashed #e2e8f0'
-      : p.stage === 'DRAGGING_OVER'
-      ? '2px dashed #4299E1'
-      : null};
   border-radius: 50px;
+  box-shadow: inset;
+
+  > svg {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    opacity: 0.15;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: gray.60;
+    z-index: 1;
+  }
 `
 
 const Heading = styled(a.h1)`
@@ -100,6 +112,8 @@ const Heading = styled(a.h1)`
   margin: 0 auto;
   text-align: center;
   line-height: 1.75;
+  position: relative;
+  z-index: 3;
 `
 
 const Label = styled.label`

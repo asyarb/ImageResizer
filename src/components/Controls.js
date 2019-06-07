@@ -56,9 +56,9 @@ const ControlsContainer = styled.aside`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 3rem;
+  padding: 0.65rem 2rem;
   text-align: center;
-  background-color: window.0;
+  background-color: window.90;
 `
 
 const Heading = styled.h2`
