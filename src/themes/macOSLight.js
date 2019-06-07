@@ -49,8 +49,6 @@ export const macOSLightTheme = {
     midLarge: '2rem',
     large: '2.4rem',
     xlarge: '3rem',
-    xxlarge: '3.6rem',
-    huge: '4.2rem',
   },
   sizes: {
     small: '48rem',
