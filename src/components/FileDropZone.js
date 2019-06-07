@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStore } from 'easy-peasy'
-import styled from '@emotion/styled/macro'
+import styled from '@xstyled/styled-components/macro'
 
 import { FileList } from './FileList'
 import { DropZone } from './DropZone'

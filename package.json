@@ -28,10 +28,9 @@
     }
   },
   "dependencies": {
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.10",
+    "@xstyled/styled-components": "^1.1.1",
     "asyncro": "^3.0.0",
-    "easy-peasy": "^2.1.6",
+    "easy-peasy": "^2.3.3",
     "electron-is-dev": "^1.1.0",
     "minireset.css": "^0.0.4",
     "pica": "^5.0.0",
@@ -40,7 +39,8 @@
     "react-dom": "^16.8.6",
     "react-lottie": "^1.2.3",
     "react-scripts": "3.0.0",
-    "react-spring": "^8.0.20",
+    "react-spring": "^8.0.22",
+    "styled-components": "^4.3.1",
     "typeface-inter": "^3.5.0"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStore, useActions } from 'easy-peasy'
-import styled from '@emotion/styled/macro'
+import styled from '@xstyled/styled-components/macro'
 import { useTrail, a, config } from 'react-spring'
 
 const File = ({ file, src, name, ...props }) => {
