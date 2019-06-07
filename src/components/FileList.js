@@ -2,16 +2,15 @@ import React, { useRef, useEffect, useState } from 'react'
 import { useStore, useActions } from 'easy-peasy'
 import styled from '@emotion/styled/macro'
 import { useTrail, a, config } from 'react-spring'
-import prettyBytes from 'pretty-bytes'
 
 const File = ({ file, src, ...props }) => {
   const imgRef = useRef()
   const [dimensions, setDimensions] = useState(null)
-  const { name, size } = file
-  const sizeString = () => prettyBytes(size)
+  const { name } = file
 
   useEffect(() => {
     const imgDomNode = imgRef.current
+
     if (imgDomNode)
       setDimensions({
         height: imgDomNode.naturalHeight,
@@ -25,10 +24,6 @@ const File = ({ file, src, ...props }) => {
       <Details>
         <FileName>{name}</FileName>
         <div>
-          <FileSize>
-            Size: <strong>{sizeString}</strong>
-          </FileSize>
-
           {dimensions && (
             <>
               <Dimensions>
@@ -78,23 +73,21 @@ export const FileList = props => {
   )
 }
 
-const Container = styled.div`
-  padding: 2rem 0;
-  position: relative;
-`
+const Container = styled.div``
 
 const FileContainer = styled(a.div)`
-  padding: 1rem 2rem;
+  margin: 1rem 2rem;
   display: flex;
+  align-items: center;
 `
 
 const Heading = styled.div`
   display: grid;
   justify-items: center;
-  padding-bottom: 2rem;
+  align-items: center;
+  padding: 1rem 0;
   grid-template-columns: repeat(3, 1fr);
   border-bottom: 2px solid #e2e8f0;
-  margin-bottom: 1rem;
 `
 
 const Details = styled.div`
@@ -105,12 +98,15 @@ const Details = styled.div`
 `
 
 const FileName = styled.h3`
-  font-size: 1.8rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
   font-weight: 500;
   color: #2d3748;
 `
 
 const FileSize = styled.div`
+  font-size: 1.4rem;
+
   strong {
     color: #ed8936;
     font-weight: 500;
@@ -124,8 +120,8 @@ const Dimensions = styled(FileSize)`
 `
 
 const PreviewThumbnail = styled.img`
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   object-fit: cover;
   object-position: center center;
   margin-right: 1.5rem;
@@ -137,21 +133,21 @@ const PreviewThumbnail = styled.img`
 
 const Text = styled.h1`
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 1.6rem;
   grid-column: 2;
+  margin: 0;
 `
 
 const ResetButton = styled.button`
-  display: flex;
   cursor: pointer;
   font-weight: 500;
   color: #fff;
   grid-column: 3;
   justify-self: end;
-  margin-right: 2rem;
-  padding: 1rem 2rem;
+  margin-right: 1rem;
+  padding: 0.5rem 2rem;
   background: linear-gradient(#fc8181, #e53e3e);
-  border-radius: 25px;
+  border-radius: 8px;
   box-shadow: 0 4px 11px 0 rgba(37, 44, 97, 0.15),
     0 1px 3px 0 rgba(93, 100, 148, 0.2);
   outline: none;

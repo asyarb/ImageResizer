@@ -17,11 +17,7 @@ export const Controls = () => {
     resizeWidth: state.resizeWidth,
   }))
 
-  const isShowingControls = [
-    'INIT',
-    'DRAGGING_OVER',
-    'UPLOADED_FILES',
-  ].includes(stage)
+  const isShowingControls = ['INIT', 'DRAGGING_OVER'].includes(stage)
   const isShowingConfirm = ['UPLOADED_FILES', 'RESIZING'].includes(stage)
 
   return (
@@ -129,14 +125,10 @@ const Button = styled.button`
 `
 
 const ConfirmButton = styled(Button)`
+  display: flex;
+  align-items: center;
   background: linear-gradient(180deg, #68d391, #38a169);
-  width: min-content;
   color: #fff;
-  padding: 1.5rem 3rem;
-
-  &:last-of-type {
-    margin: 0 auto 3rem;
-  }
 `
 
 const ResizeMoreButton = styled(ConfirmButton)`
