@@ -9,9 +9,10 @@ export const macOSLightTheme = {
     white: '#fff',
     black: 'rgb(28, 28, 28)',
     window: {
-      90: 'rgb(233, 233, 233)',
-      80: 'rgb(224, 224, 224)',
+      90: 'rgb(236, 236, 236)',
+      80: 'rgb(227, 227, 227)',
       70: 'rgb(215, 215, 216)',
+      60: 'rgb(206, 205, 206)',
     },
     gray: {
       90: 'rgb(240, 240, 240)',
@@ -26,10 +27,18 @@ export const macOSLightTheme = {
       60: 'rgb(76, 152, 254)',
       50: 'rgb(5, 100, 227)',
     },
+    green: {
+      90: '#68d391',
+      80: '#38a169',
+      70: '#4bb172',
+      60: '#298e58',
+    },
   },
   borders: {
     primaryButtonBorder: '1px solid rgb(36, 127, 255)',
     secondaryButtonBorder: '1px solid rgb(199, 199, 199)',
+    windowBorder: '1px solid rgb(167, 168, 167)',
+    confirmButtonBorder: '1px solid #38a169',
   },
   fonts: {
     sans: 'sans-serif',

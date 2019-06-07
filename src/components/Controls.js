@@ -42,7 +42,9 @@ export const Controls = () => {
       )}
 
       {isShowingConfirm && (
-        <ConfirmButton onClick={resizeFiles}>Resize</ConfirmButton>
+        <Button type="confirm" onClick={resizeFiles}>
+          Resize
+        </Button>
       )}
 
       {stage === 'FINISHED' && (
@@ -52,7 +54,7 @@ export const Controls = () => {
   )
 }
 
-const ControlsContainer = styled.aside`
+const ControlsContainer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -81,14 +83,7 @@ const SizeButtons = styled.div`
   justify-content: center;
 `
 
-const ConfirmButton = styled(Button)`
-  display: flex;
-  align-items: center;
-  background: linear-gradient(180deg, #68d391, #38a169);
-  color: #fff;
-`
-
-const ResizeMoreButton = styled(ConfirmButton)`
+const ResizeMoreButton = styled(Button)`
   background: linear-gradient(180deg, #7f9cf5, #5a67d8);
   width: auto;
 `

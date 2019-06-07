@@ -10,7 +10,7 @@ let mainWindow
 const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 600,
-    height: 400,
+    height: 480,
     titleBarStyle: 'hidden',
     webPreferences: {
       nodeIntegration: true,

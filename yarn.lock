@@ -10430,11 +10430,6 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typeface-inter@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/typeface-inter/-/typeface-inter-3.5.0.tgz#b7ec732b7631f0ca4d279d65861d43779ca9416f"
-  integrity sha512-C8a7i9xwhphD/NCjJ41sOUdCsDJDVOpuyxxJHtLFRmtGpI5cLQjfrw9/oOZkdVnanBVdELJTmii68i75T256qA==
-
 typelevel-ts@^0.3.5:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/typelevel-ts/-/typelevel-ts-0.3.5.tgz#9f242c193fa6c5489d2342c642ab8912a065af9d"

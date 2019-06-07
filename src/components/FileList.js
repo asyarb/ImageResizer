@@ -3,6 +3,8 @@ import { useStore, useActions } from 'easy-peasy'
 import styled from '@xstyled/styled-components'
 import { useTrail, a, config } from 'react-spring'
 
+import { macOSLightTheme as lt } from '../themes/macOSLight'
+
 const File = ({ file, src, name, ...props }) => {
   return (
     <FileContainer {...props}>
@@ -38,9 +40,9 @@ export const FileList = props => {
 
   return (
     <Container {...props}>
-      <Heading>
+      <HeadingBar>
         <Text>Pending Images</Text>
-      </Heading>
+      </HeadingBar>
 
       {files.map((file, index) => {
         const src = URL.createObjectURL(file)
@@ -67,13 +69,12 @@ const FileContainer = styled(a.div)`
   align-items: center;
 `
 
-const Heading = styled.div`
+const HeadingBar = styled.header`
   display: grid;
-  justify-items: center;
-  align-items: center;
+  place-items: center;
   padding: 1rem 0;
-  grid-template-columns: repeat(3, 1fr);
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: windowBorder;
+  background: linear-gradient(${lt.colors.window[80]}, ${lt.colors.window[60]});
 `
 
 const Details = styled.div`
@@ -103,8 +104,7 @@ const PreviewThumbnail = styled.img`
 `
 
 const Text = styled.h1`
-  font-weight: 600;
-  font-size: normal;
-  grid-column: 2;
-  margin: 0;
+  font-weight: 500;
+  font-size: small;
+  margin: 0 auto;
 `

@@ -24,6 +24,18 @@ const getColorScheme = type => {
         activeBg: lt.colors.gray[90],
       }
 
+    case 'confirm':
+      return {
+        background: `linear-gradient(${lt.colors.green[90]}, ${
+          lt.colors.green[80]
+        })`,
+        color: 'white',
+        border: 'confirmButtonBorder',
+        activeBg: `linear-gradient(${lt.colors.green[70]}, ${
+          lt.colors.green[60]
+        })`,
+      }
+
     default:
       return
   }
