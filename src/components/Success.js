@@ -7,57 +7,62 @@ import animationJson from '../assets/checked-lottie.json'
 export const Success = () => {
   return (
     <SuccessContainer>
-      <Lottie
-        options={{
-          loop: false,
-          autoplay: true,
-          animationData: animationJson,
-          rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice',
-          },
-        }}
-        height={250}
-        width={250}
-        isStopped={false}
-        isPaused={false}
-      />
+      <LottieContainer>
+        <Lottie
+          options={{
+            loop: false,
+            autoplay: true,
+            animationData: animationJson,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice',
+            },
+          }}
+          height={200}
+          width={250}
+          isStopped={false}
+          isPaused={false}
+        />
+      </LottieContainer>
       <Message>
         <Heading>Success!</Heading>
-        <Text>
-          Your images have been resized and placed in your downloads folder.
-        </Text>
+        <Text>Your images are in your downloads folder.</Text>
       </Message>
     </SuccessContainer>
   )
 }
 
 const SuccessContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr;
+  place-items: end center;
   height: 100%;
-  position: relative;
+`
+
+const LottieContainer = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -35%);
 `
 
 const Message = styled.div`
-  position: absolute;
-  bottom: 8rem;
+  padding-bottom: 18%;
+  text-align: center;
 `
 
 const Heading = styled.h2`
-  color: #48bb78;
+  color: green.70;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 2.4rem;
+  margin-bottom: 1rem;
   font-size: large;
 `
 
 const Text = styled.p`
-  color: #718096;
+  color: black;
   max-width: 30ch;
   text-align: center;
   margin: 0 auto;
-  font-size: medium;
-  line-height: 1.75;
+  font-size: normal;
+  line-height: copy;
 `

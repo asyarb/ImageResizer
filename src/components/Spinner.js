@@ -37,25 +37,25 @@ const SpinnerContainer = styled.div`
 `
 
 const Label = styled.h2`
-  font-size: large;
+  font-size: medium;
   font-weight: 500;
+  margin-top: 2rem;
 `
 
 const Grid = styled.div`
   ${p => css`
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.2rem;
     width: ${p.size};
     height: ${p.size};
-    margin-bottom: 2rem;
   `}
 `
 
 const Cube = styled.div`
-  width: 27%;
-  height: 27%;
-  background-color: #81e6d9;
-  float: left;
-  animation: ${cubeAnimation} 1.3s infinite ease-in-out;
-  margin: 2%;
+  background-color: blue.90;
+  animation: ${cubeAnimation} 1.5s infinite ease-in-out;
 
   &:nth-of-type(1) {
     animation-delay: 0.2s;

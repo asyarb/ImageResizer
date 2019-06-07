@@ -54,7 +54,9 @@ export const Controls = () => {
         )}
 
         {stage === 'FINISHED' && (
-          <ResizeMoreButton onClick={resetFiles}>Resize More</ResizeMoreButton>
+          <Button type="primary" onClick={resetFiles}>
+            Resize More
+          </Button>
         )}
       </ButtonContainer>
     </ControlsContainer>
@@ -92,9 +94,4 @@ const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
-
-const ResizeMoreButton = styled(Button)`
-  background: linear-gradient(180deg, #7f9cf5, #5a67d8);
-  width: auto;
 `

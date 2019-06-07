@@ -15,7 +15,7 @@ export const FileDropZone = props => {
     <Container hasPadding={isShowingDropZone} {...props}>
       {isShowingDropZone && <DropZone />}
       {stage === 'UPLOADED_FILES' && <FileList />}
-      {stage === 'RESIZING' && <Spinner size="8rem" />}
+      {stage === 'RESIZING' && <Spinner size="4rem" />}
       {stage === 'FINISHED' && <Success />}
     </Container>
   )

@@ -7,8 +7,16 @@ import fs from 'fs'
 import os from 'os'
 import path from 'path'
 
+const STAGE_ENUM = {
+  INIT: 'INIT',
+  RESIZING: 'RESIZING',
+  UPLOADED_FILES: 'UPLOADED_FILES',
+  FINISHED: 'FINISHED',
+}
+const { INIT, RESIZING, UPLOADED_FILES, FINISHED } = STAGE_ENUM
+
 const state = {
-  stage: 'INIT',
+  stage: FINISHED,
   files: [],
   resizeWidth: 2000,
 }
@@ -48,13 +56,13 @@ const actions = {
 
   setFilesSmart: action((state, payload) => ({
     ...state,
-    stage: 'UPLOADED_FILES',
+    stage: UPLOADED_FILES,
     files: payload,
   })),
 
   resetFiles: action(state => ({
     ...state,
-    stage: 'INIT',
+    stage: INIT,
     files: [],
   })),
 }
@@ -62,10 +70,10 @@ const actions = {
 const thunks = {
   resizeFiles: thunk(async (actions, _payload, { getState }) => {
     const { files } = getState()
-    actions.setStage('RESIZING')
+    actions.setStage(RESIZING)
 
     await map(files, file => actions._resizeAndDownloadImage(file))
-    actions.setStage('FINISHED')
+    actions.setStage(FINISHED)
   }),
 
   // @private
