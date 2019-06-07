@@ -16,8 +16,8 @@ export const Success = () => {
             preserveAspectRatio: 'xMidYMid slice',
           },
         }}
-        height={450}
-        width={450}
+        height={250}
+        width={250}
         isStopped={false}
         isPaused={false}
       />

@@ -45,6 +45,7 @@
   "devDependencies": {
     "@rescripts/cli": "^0.0.10",
     "@rescripts/rescript-env": "^0.0.10",
+    "babel-plugin-styled-components": "^1.10.0",
     "concurrently": "^4.1.0",
     "electron": "^5.0.0",
     "electron-builder": "^20.39.0",

@@ -24,32 +24,39 @@ export const Controls = () => {
       <Heading>
         Size: <strong>{resizeWidth}px</strong>
       </Heading>
-      {isShowingControls && (
-        <SizeButtons>
-          <LargeToggle
-            onClick={() => setResizeWidth(2000)}
-            type={resizeWidth === 2000 ? 'primary' : 'secondary'}
-          >
-            Large
-          </LargeToggle>
-          <Button
-            onClick={() => setResizeWidth(500)}
-            type={resizeWidth === 500 ? 'primary' : 'secondary'}
-          >
-            Small
-          </Button>
-        </SizeButtons>
-      )}
+      <ButtonContainer>
+        {isShowingControls && (
+          <>
+            <LargeToggle
+              onClick={() => setResizeWidth(2000)}
+              type={resizeWidth === 2000 ? 'primary' : 'secondary'}
+            >
+              Large
+            </LargeToggle>
+            <Button
+              onClick={() => setResizeWidth(500)}
+              type={resizeWidth === 500 ? 'primary' : 'secondary'}
+            >
+              Small
+            </Button>
+          </>
+        )}
 
-      {isShowingConfirm && (
-        <Button type="confirm" onClick={resizeFiles}>
-          Resize
-        </Button>
-      )}
+        {isShowingConfirm && (
+          <>
+            <Button type="secondary" onClick={resetFiles}>
+              Cancel
+            </Button>
+            <ResizeButton type="confirm" onClick={resizeFiles}>
+              Resize
+            </ResizeButton>
+          </>
+        )}
 
-      {stage === 'FINISHED' && (
-        <ResizeMoreButton onClick={resetFiles}>Resize More</ResizeMoreButton>
-      )}
+        {stage === 'FINISHED' && (
+          <ResizeMoreButton onClick={resetFiles}>Resize More</ResizeMoreButton>
+        )}
+      </ButtonContainer>
     </ControlsContainer>
   )
 }
@@ -77,7 +84,11 @@ const LargeToggle = styled(Button)`
   margin-right: 1rem;
 `
 
-const SizeButtons = styled.div`
+const ResizeButton = styled(Button)`
+  margin-left: 1rem;
+`
+
+const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
