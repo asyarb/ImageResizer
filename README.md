@@ -6,7 +6,7 @@ An Electron app for client-side image resizing leveraging WASM. All provided ima
 
 - `React`
 - `pica` - client side image resizing solution that leverages wasm and web workers.
-- `emotion` - styling
+- `xstyled` - styling & dark-mode theming
 - `easy-peasy` state & action management.
 - `lottie`, `react-spring` - animations.
 - `asyncro` - asynchronous iterations for batched image resizing.
