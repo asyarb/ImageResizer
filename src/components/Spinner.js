@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from '@xstyled/styled-components/macro'
-import { keyframes } from '@emotion/core'
+import styled from '@xstyled/styled-components'
+import { keyframes } from 'styled-components'
 
 const cubeAnimation = keyframes`
    0%, 70%, 100% {    

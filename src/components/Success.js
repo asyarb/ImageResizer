@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@xstyled/styled-components/macro'
+import styled from '@xstyled/styled-components'
 import Lottie from 'react-lottie'
 
 import animationJson from '../assets/checked-lottie.json'

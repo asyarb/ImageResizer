@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStore, useActions } from 'easy-peasy'
-import styled from '@xstyled/styled-components/macro'
+import styled from '@xstyled/styled-components'
 import { useSpring, a, config } from 'react-spring'
 
 export const DropZone = props => {

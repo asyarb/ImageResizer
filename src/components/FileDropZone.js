@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStore } from 'easy-peasy'
-import styled from '@xstyled/styled-components/macro'
+import styled from '@xstyled/styled-components'
 
 import { FileList } from './FileList'
 import { DropZone } from './DropZone'
@@ -26,7 +26,7 @@ export const FileDropZone = props => {
 }
 
 const Container = styled.div`
-  background: #f7fafc;
+  background-color: window.10;
   position: relative;
   padding: ${p => (p.hasPadding ? '2rem' : null)};
 
@@ -38,6 +38,6 @@ const Container = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #bee3f8;
+    color: gray.90;
   }
 `

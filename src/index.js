@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom'
 import { App } from './components/App'
 import * as serviceWorker from './serviceWorker'
 import 'minireset.css'
-import 'typeface-inter'
 
 import { ResizerProvider } from './components/ResizerProvider'
+import { ThemeProvider } from './components/ThemeProvider'
 
 ReactDOM.render(
   <ResizerProvider>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </ResizerProvider>,
   document.getElementById('root')
 )

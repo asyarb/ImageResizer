@@ -40,8 +40,7 @@
     "react-lottie": "^1.2.3",
     "react-scripts": "3.0.0",
     "react-spring": "^8.0.22",
-    "styled-components": "^4.3.1",
-    "typeface-inter": "^3.5.0"
+    "styled-components": "^4.3.1"
   },
   "devDependencies": {
     "@rescripts/cli": "^0.0.10",
@@ -49,12 +48,12 @@
     "concurrently": "^4.1.0",
     "electron": "^5.0.0",
     "electron-builder": "^20.39.0",
+    "prettier": "^1.18.0",
     "typescript": "^3.4.5",
     "wait-on": "^3.2.0"
   },
   "scripts": {
-    "develop-browser": "react-scripts start",
-    "develop-electron": "concurrently \"yarn rescripts start\" \"wait-on http://localhost:3000 && electron .\"",
+    "develop": "concurrently \"yarn rescripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "rescripts build",
     "test": "rescripts test",
     "postinstall": "electron-builder install-app-deps",
@@ -66,12 +65,10 @@
   },
   "browserslist": {
     "production": [
-      "last 1 chrome version",
-      "last 1 firefox version"
+      "last 1 chrome version"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version"
+      "last 1 chrome version"
     ]
   }
 }
