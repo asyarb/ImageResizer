@@ -8,7 +8,7 @@ import { Spinner } from './Spinner'
 import { Success } from './Success'
 import { ReactComponent as ArrowIconBG } from '../assets/arrow-down-circle.svg'
 
-export const FileInput = props => {
+export const FileDropZone = props => {
   const stage = useStore(state => state.stage)
 
   const isShowingDropZone = ['INIT', 'DRAGGING_OVER'].includes(stage)

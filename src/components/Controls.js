@@ -5,7 +5,6 @@ import styled from '@emotion/styled/macro'
 import { ReactComponent as ImageIcon } from '../assets/image-icon.svg'
 import { ReactComponent as CheckIcon } from '../assets/check-circle.svg'
 import { ReactComponent as ArrowIcon } from '../assets/arrow-right-circle.svg'
-import AppIconImg from '../assets/icon.png'
 
 export const Controls = () => {
   const { resizeFiles, setResizeWidth, resetFiles } = useActions(actions => ({
@@ -28,9 +27,8 @@ export const Controls = () => {
 
   return (
     <ControlsContainer>
-      <AppIcon src={AppIconImg} />
       <Heading>
-        Resizing to: <strong>{resizeWidth}px</strong>
+        Current size: <strong>{resizeWidth}px</strong>
       </Heading>
       {isShowingControls && (
         <SizeButtons>
@@ -63,51 +61,32 @@ export const Controls = () => {
           <ArrowIcon /> Resize More
         </ResizeMoreButton>
       )}
-      <Disclaimer>
-        If an uploaded image is already smaller than the selected size, it will
-        be processed as is.
-      </Disclaimer>
     </ControlsContainer>
   )
 }
 
-const AppIcon = styled.img`
-  width: 175px;
-  margin: 0 auto;
-`
-
 const ControlsContainer = styled.aside`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-self: center;
-  padding: 3rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 3rem;
   text-align: center;
 `
 
 const Heading = styled.h2`
-  font-size: 3.5rem;
-  font-weight: 500;
-  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  color: #525f7f;
 
   strong {
     color: #3ab2bd;
+    font-size: 2rem;
   }
-`
-
-const Disclaimer = styled.p`
-  line-height: 1.75;
-  max-width: 40ch;
-  margin: 0 auto;
-  color: #a0aec0;
-  font-size: 1.7rem;
 `
 
 const SizeButtons = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 3rem;
 `
 
 const Button = styled.button`
@@ -123,9 +102,9 @@ const Button = styled.button`
   box-shadow: 0 4px 11px 0 rgba(37, 44, 97, 0.15),
     0 1px 3px 0 rgba(93, 100, 148, 0.2);
   cursor: pointer;
-  border-radius: 50px;
+  border-radius: 8px;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
-  margin-right: 3rem;
+  margin-right: 1.5rem;
   outline: none;
 
   &:hover,
@@ -144,10 +123,10 @@ const Button = styled.button`
   }
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     color: currentColor;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     flex-shrink: 0;
   }
 `

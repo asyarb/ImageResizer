@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 
 import { GlobalStyle } from './GlobalStyle'
 
-import { FileInput } from './FileInput'
+import { FileDropZone } from './FileDropZone'
 import { Controls } from './Controls'
 
 export const App = () => {
@@ -11,7 +11,7 @@ export const App = () => {
     <>
       <GlobalStyle />
       <AppContainer>
-        <FileInput />
+        <FileDropZone />
         <Controls />
       </AppContainer>
     </>
@@ -21,5 +21,5 @@ export const App = () => {
 const AppContainer = styled.main`
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 3fr 450px;
+  grid-template-rows: 1fr auto;
 `

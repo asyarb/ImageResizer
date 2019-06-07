@@ -73,8 +73,8 @@ export const DropZone = props => {
       {...props}
     >
       <Heading style={animProps}>
-        Drag and drop images here, or <Label htmlFor="file">browse</Label> your
-        computer instead.
+        Drop images here, or <Label htmlFor="file">browse</Label> your computer
+        instead.
       </Heading>
 
       <Input
@@ -106,11 +106,10 @@ const DropZoneContainer = styled.div`
 `
 
 const Heading = styled(a.h1)`
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   max-width: 25ch;
   margin: 0 auto;
   text-align: center;
-  font-weight: 600;
   line-height: 1.75;
 `
 
