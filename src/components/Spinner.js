@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import { keyframes } from 'styled-components'
 
 const cubeAnimation = keyframes`
@@ -10,7 +10,7 @@ const cubeAnimation = keyframes`
   } 
 `
 
-export const Spinner = ({ size = '4rem', ...props }) => (
+export const Spinner = ({ size = '3rem', ...props }) => (
   <SpinnerContainer>
     <Grid size={size} {...props}>
       <Cube />
@@ -37,14 +37,16 @@ const SpinnerContainer = styled.div`
 `
 
 const Label = styled.h2`
-  font-size: 3rem;
+  font-size: large;
   font-weight: 500;
 `
 
 const Grid = styled.div`
-  width: ${p => p.size};
-  height: ${p => p.size};
-  margin-bottom: 3rem;
+  ${p => css`
+    width: ${p.size};
+    height: ${p.size};
+    margin-bottom: 2rem;
+  `}
 `
 
 const Cube = styled.div`

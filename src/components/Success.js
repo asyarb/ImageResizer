@@ -50,7 +50,7 @@ const Heading = styled.h2`
   font-weight: 700;
   text-align: center;
   margin-bottom: 2.4rem;
-  font-size: 3.6rem;
+  font-size: large;
 `
 
 const Text = styled.p`
@@ -58,6 +58,6 @@ const Text = styled.p`
   max-width: 30ch;
   text-align: center;
   margin: 0 auto;
-  font-size: 1.8rem;
+  font-size: medium;
   line-height: 1.75;
 `

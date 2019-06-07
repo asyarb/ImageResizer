@@ -63,8 +63,7 @@ export const DropZone = props => {
       {...props}
     >
       <Heading style={animProps}>
-        Drop images here, or <Label htmlFor="file">browse</Label> your computer
-        instead.
+        Drop images here, or <Label htmlFor="file">browse</Label> for files.
       </Heading>
 
       <Input
@@ -81,15 +80,12 @@ export const DropZone = props => {
 }
 
 const DropZoneContainer = styled.div`
-  display: flex;
+  display: grid;
   background-color: window.70;
   position: relative;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
+  place-items: center;
   height: 100%;
-  border-radius: 50px;
+  border-radius: 25px;
   box-shadow: inset;
 
   > svg {
@@ -106,10 +102,9 @@ const DropZoneContainer = styled.div`
 `
 
 const Heading = styled(a.h1)`
-  font-size: 1.7rem;
+  font-size: medium;
   font-weight: 500;
-  max-width: 25ch;
-  margin: 0 auto;
+  max-width: 20ch;
   text-align: center;
   line-height: 1.75;
   position: relative;

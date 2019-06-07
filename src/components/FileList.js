@@ -40,7 +40,6 @@ export const FileList = props => {
     <Container {...props}>
       <Heading>
         <Text>Pending Images</Text>
-        <ResetButton onClick={resetFiles}>Cancel</ResetButton>
       </Heading>
 
       {files.map((file, index) => {
@@ -85,7 +84,7 @@ const Details = styled.div`
 `
 
 const FileName = styled.h3`
-  font-size: 1.5rem;
+  font-size: small;
   margin-bottom: 0.5rem;
   font-weight: 500;
   color: #2d3748;
@@ -105,35 +104,7 @@ const PreviewThumbnail = styled.img`
 
 const Text = styled.h1`
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: normal;
   grid-column: 2;
   margin: 0;
-`
-
-const ResetButton = styled.button`
-  cursor: pointer;
-  font-weight: 500;
-  color: #fff;
-  grid-column: 3;
-  justify-self: end;
-  margin-right: 1rem;
-  padding: 0.5rem 2rem;
-  background: linear-gradient(#fc8181, #e53e3e);
-  border-radius: 8px;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 11px 0 rgba(37, 44, 97, 0.15),
-    0 1px 3px 0 rgba(93, 100, 148, 0.2);
-  outline: none;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-
-  &:hover,
-  &:focus {
-    box-shadow: 0 8px 22px 0 rgba(37, 44, 97, 0.15),
-      0 4px 6px 0 rgba(93, 100, 148, 0.2);
-    transform: translateY(-1px);
-  }
-
-  &:active {
-    transform: translateY(1px);
-  }
 `

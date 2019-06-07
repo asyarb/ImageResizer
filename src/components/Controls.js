@@ -62,11 +62,11 @@ const ControlsContainer = styled.aside`
 `
 
 const Heading = styled.h2`
-  font-size: 1.3rem;
+  font-size: tiny;
   color: #525f7f;
 
   strong {
-    font-size: 1.6rem;
+    font-size: normal;
     color: #32325d;
   }
 `

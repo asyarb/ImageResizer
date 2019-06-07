@@ -42,10 +42,10 @@ export const macOSLightTheme = {
     wide: 1.75,
   },
   fontSizes: {
-    tiny: '1.2rem',
+    tiny: '1.3rem',
     small: '1.4rem',
     normal: '1.6rem',
-    medium: '1.8rem',
+    medium: '1.7rem',
     midLarge: '2rem',
     large: '2.4rem',
     xlarge: '3rem',

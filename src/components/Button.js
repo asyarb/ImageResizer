@@ -48,7 +48,7 @@ const ButtonContainer = styled.button`
     font-weight: 500;
     border-radius: 5px;
     outline: none;
-    font-size: 1.4rem;
+    font-size: small;
     border: ${p.colorScheme.border};
     box-shadow: button;
 
