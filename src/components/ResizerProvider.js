@@ -30,23 +30,28 @@ const actions = {
       }
     )
   }),
+
   setResizeWidth: action((state, payload) => ({
     ...state,
     resizeWidth: payload,
   })),
+
   setStage: action((state, payload) => ({
     ...state,
     stage: payload,
   })),
+
   setFiles: action((state, payload) => ({
     ...state,
     files: payload,
   })),
+
   setFilesSmart: action((state, payload) => ({
     ...state,
     stage: 'UPLOADED_FILES',
     files: payload,
   })),
+
   resetFiles: action(state => ({
     ...state,
     stage: 'INIT',
@@ -59,11 +64,12 @@ const thunks = {
     const { files } = getState()
     actions.setStage('RESIZING')
 
-    await map(files, file => actions.resizeAndDownloadImage(file))
+    await map(files, file => actions._resizeAndDownloadImage(file))
     actions.setStage('FINISHED')
   }),
+
   // @private
-  drawSrcCanvas: thunk(
+  _drawSrcCanvas: thunk(
     (_actions, payload) =>
       new Promise((resolve, reject) => {
         const srcCanvas = document.createElement('canvas')
@@ -86,8 +92,9 @@ const thunks = {
         img.src = URL.createObjectURL(payload)
       })
   ),
+
   // @private
-  drawResizedCanvas: thunk(async (_actions, payload, { getState }) => {
+  _drawResizedCanvas: thunk(async (_actions, payload, { getState }) => {
     const pica = new Pica()
     const { resizeWidth } = getState()
 
@@ -104,11 +111,12 @@ const thunks = {
 
     return destCanvas
   }),
+
   // @private
-  resizeAndDownloadImage: thunk(async (actions, payload) => {
+  _resizeAndDownloadImage: thunk(async (actions, payload) => {
     try {
-      const srcCanvas = await actions.drawSrcCanvas(payload)
-      const destCanvas = await actions.drawResizedCanvas(srcCanvas)
+      const srcCanvas = await actions._drawSrcCanvas(payload)
+      const destCanvas = await actions._drawResizedCanvas(srcCanvas)
 
       await actions.writeImageFile({
         canvas: destCanvas,

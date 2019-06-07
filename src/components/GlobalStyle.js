@@ -26,6 +26,7 @@ export const GlobalStyle = () => {
           background: #fff;
           color: #2d3748;
           overflow-x: hidden;
+          -webkit-app-region: drag;
         }
         a {
           text-decoration: none;
@@ -37,6 +38,7 @@ export const GlobalStyle = () => {
           font: inherit;
           background: transparent;
           border: none;
+          -webkit-app-region: no-drag;
         }
         .uppy-DashboardItem-statusSize,
         .uppy-DashboardItem-action {

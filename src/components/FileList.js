@@ -1,40 +1,26 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React from 'react'
 import { useStore, useActions } from 'easy-peasy'
 import styled from '@emotion/styled/macro'
 import { useTrail, a, config } from 'react-spring'
 
-const File = ({ file, src, ...props }) => {
-  const imgRef = useRef()
-  const [dimensions, setDimensions] = useState(null)
-  const { name } = file
-
-  useEffect(() => {
-    const imgDomNode = imgRef.current
-
-    if (imgDomNode)
-      setDimensions({
-        height: imgDomNode.naturalHeight,
-        width: imgDomNode.naturalWidth,
-      })
-  }, [imgRef])
-
+const File = ({ file, src, name, ...props }) => {
   return (
     <FileContainer {...props}>
-      <PreviewThumbnail src={src} ref={imgRef} />
+      <PreviewThumbnail src={src} />
       <Details>
         <FileName>{name}</FileName>
-        <div>
-          {dimensions && (
+        {/* <div>
+          {
             <>
               <Dimensions>
-                Width: <strong>{dimensions.height}px</strong>
+                Width: <strong>{height}px</strong>
               </Dimensions>
               <Dimensions>
-                Height: <strong>{dimensions.width}px</strong>
+                Height: <strong>{width}px</strong>
               </Dimensions>
             </>
-          )}
-        </div>
+          }
+        </div> */}
       </Details>
     </FileContainer>
   )
@@ -65,6 +51,7 @@ export const FileList = props => {
             key={file.name}
             file={file}
             src={src}
+            name={file.name}
             style={animFiles[index]}
           />
         )
@@ -104,21 +91,6 @@ const FileName = styled.h3`
   color: #2d3748;
 `
 
-const FileSize = styled.div`
-  font-size: 1.4rem;
-
-  strong {
-    color: #ed8936;
-    font-weight: 500;
-  }
-`
-
-const Dimensions = styled(FileSize)`
-  strong {
-    color: #9f7aea;
-  }
-`
-
 const PreviewThumbnail = styled.img`
   height: 50px;
   width: 50px;
@@ -148,6 +120,7 @@ const ResetButton = styled.button`
   padding: 0.5rem 2rem;
   background: linear-gradient(#fc8181, #e53e3e);
   border-radius: 8px;
+  font-size: 1.5rem;
   box-shadow: 0 4px 11px 0 rgba(37, 44, 97, 0.15),
     0 1px 3px 0 rgba(93, 100, 148, 0.2);
   outline: none;
