@@ -9,6 +9,7 @@ export const macOSLightTheme = {
     white: '#fff',
     black: 'rgb(28, 28, 28)',
     window: {
+      100: 'rgb(240, 240, 240)',
       90: 'rgb(236, 236, 236)',
       80: 'rgb(227, 227, 227)',
       70: 'rgb(215, 215, 216)',

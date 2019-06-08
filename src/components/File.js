@@ -42,7 +42,7 @@ const FileContainer = styled(a.li)`
   background-color: window.80;
 
   &:nth-of-type(2n) {
-    background-color: gray.90;
+    background-color: window.100;
   }
 `
 
