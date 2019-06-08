@@ -70,6 +70,7 @@ const ControlsContainer = styled.footer`
   padding: 0.65rem 2rem;
   text-align: center;
   background-color: controlsBarBg;
+  border-top: windowBorder;
 `
 
 const SizeLabel = styled.h2`

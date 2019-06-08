@@ -78,10 +78,11 @@ const thunks = {
 
   // @private
   _drawSrcCanvas: thunk(
-    (_actions, payload) =>
+    (_actions, payload, { getState }) =>
       new Promise((resolve, reject) => {
         const srcCanvas = document.createElement('canvas')
         const context = srcCanvas.getContext('2d')
+        const { resizeWidth } = getState()
 
         const img = new Image()
         img.onload = () => {
@@ -90,7 +91,8 @@ const thunks = {
 
           context.drawImage(img, 0, 0)
 
-          if (img.width < state.resizeWidth) {
+          if (img.width < resizeWidth) {
+            console.log('rejected', img.width)
             reject(srcCanvas)
           }
 
@@ -135,6 +137,7 @@ const thunks = {
       srcCanvas.remove()
       destCanvas.remove()
     } catch (errorCanvas) {
+      console.log('errored', errorCanvas)
       await actions.writeImageFile({
         canvas: errorCanvas,
         fileName: payload.name,
