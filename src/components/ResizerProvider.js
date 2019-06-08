@@ -51,11 +51,6 @@ const actions = {
 
   setFiles: action((state, payload) => ({
     ...state,
-    files: payload,
-  })),
-
-  setFilesSmart: action((state, payload) => ({
-    ...state,
     stage: UPLOADED_FILES,
     files: payload,
   })),

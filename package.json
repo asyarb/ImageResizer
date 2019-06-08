@@ -59,7 +59,8 @@
     "test": "rescripts test",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-pack": "build -m"
+    "electron-pack": "build -m",
+    "compile": "yarn electron-pack"
   },
   "eslintConfig": {
     "extends": "react-app"

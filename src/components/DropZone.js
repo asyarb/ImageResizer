@@ -7,9 +7,9 @@ import { ReactComponent as ArrowIconBG } from '../assets/arrow-down-circle.svg'
 
 export const DropZone = props => {
   const stage = useStore(state => state.stage)
-  const { setStage, setFilesSmart } = useActions(actions => ({
+  const { setStage, setFiles } = useActions(actions => ({
     setStage: actions.setStage,
-    setFilesSmart: actions.setFilesSmart,
+    setFiles: actions.setFiles,
   }))
 
   const getCleanedFiles = fileList => {
@@ -34,14 +34,14 @@ export const DropZone = props => {
     e.preventDefault()
 
     const cleanedFiles = getCleanedFiles(e.dataTransfer.files)
-    setFilesSmart(cleanedFiles)
+    setFiles(cleanedFiles)
   }
 
   const handleFile = e => {
     e.preventDefault()
 
     const cleanedFiles = getCleanedFiles(e.target.files)
-    setFilesSmart(cleanedFiles)
+    setFiles(cleanedFiles)
   }
 
   const shouldShowText = Boolean(stage === 'INIT')
