@@ -1,10 +1,10 @@
 import React from 'react'
 import { ThemeProvider as ThemeProviderBase } from '@xstyled/styled-components'
 
-import { macOSLightTheme } from '../themes/macOSLight'
+import { getCurrentTheme } from '../util/getCurrentTheme'
 
-export const ThemeProvider = ({ children }) => {
-  return (
-    <ThemeProviderBase theme={macOSLightTheme}>{children}</ThemeProviderBase>
-  )
-}
+const theme = getCurrentTheme()
+
+export const ThemeProvider = ({ children }) => (
+  <ThemeProviderBase theme={theme}>{children}</ThemeProviderBase>
+)

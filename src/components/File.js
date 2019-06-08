@@ -39,10 +39,10 @@ const FileContainer = styled(a.li)`
   padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
-  background-color: window.80;
+  background-color: mainWindowBg;
 
   &:nth-of-type(2n) {
-    background-color: window.100;
+    background-color: fileLightBg;
   }
 `
 
@@ -61,21 +61,21 @@ const PreviewThumbnail = styled.img`
 const Dimensions = styled.div`
   display: flex;
   font-size: tiny;
-  color: gray.60;
+  color: arrowButton;
 `
 
 const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #a0aec0;
 `
 
 const Width = styled.p`
   margin-right: 1rem;
+  color: secondaryTextColor;
 
   strong {
-    color: black;
+    color: primaryTextColor;
     font-weight: 500;
   }
 `
@@ -86,5 +86,5 @@ const FileName = styled.h3`
   font-size: normal;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #2d3748;
+  color: primaryTextColor;
 `

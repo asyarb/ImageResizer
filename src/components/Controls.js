@@ -21,9 +21,9 @@ export const Controls = () => {
 
   return (
     <ControlsContainer>
-      <Heading>
+      <SizeLabel>
         Size: <strong>{resizeWidth}px</strong>
-      </Heading>
+      </SizeLabel>
       <ButtonContainer>
         {isShowingControls && (
           <>
@@ -69,16 +69,17 @@ const ControlsContainer = styled.footer`
   align-items: center;
   padding: 0.65rem 2rem;
   text-align: center;
-  background-color: window.90;
+  background-color: controlsBarBg;
 `
 
-const Heading = styled.h2`
+const SizeLabel = styled.h2`
   font-size: tiny;
-  color: #525f7f;
+  color: secondaryTextColor;
+  font-weight: 500;
 
   strong {
     font-size: normal;
-    color: #32325d;
+    color: primaryTextColor;
   }
 `
 

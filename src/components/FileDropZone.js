@@ -22,6 +22,6 @@ export const FileDropZone = props => {
 }
 
 const Container = styled.main`
-  background-color: window.80;
+  background-color: mainWindowBg;
   padding: ${p => (p.hasPadding ? '4rem 2rem 2rem' : null)};
 `

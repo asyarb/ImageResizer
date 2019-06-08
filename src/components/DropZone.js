@@ -81,7 +81,7 @@ export const DropZone = props => {
 
 const DropZoneContainer = styled.div`
   display: grid;
-  background-color: window.70;
+  background-color: dropZoneBg;
   position: relative;
   place-items: center;
   height: 100%;
@@ -96,7 +96,7 @@ const DropZoneContainer = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: gray.60;
+    color: arrowBg;
     z-index: 1;
   }
 `
@@ -109,6 +109,7 @@ const Heading = styled(a.h1)`
   line-height: 1.75;
   position: relative;
   z-index: 3;
+  color: primaryTextColor;
 `
 
 const Label = styled.label`

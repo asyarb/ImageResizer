@@ -14,6 +14,7 @@ const createWindow = () => {
     titleBarStyle: 'hidden',
     webPreferences: {
       nodeIntegration: true,
+      preload: path.join(__dirname, '../src/electron/preload.js'),
     },
     backgroundColor: '#fff',
   })

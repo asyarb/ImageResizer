@@ -18,10 +18,10 @@ const getColorScheme = type => {
       }
     case 'secondary':
       return {
-        background: 'white',
-        color: 'black',
+        background: 'secondaryButtonBg',
+        color: 'primaryTextColor',
         border: 'secondaryButtonBorder',
-        activeBg: lt.colors.gray[90],
+        activeBg: 'secondaryButtonActive',
       }
 
     case 'confirm':
@@ -55,6 +55,7 @@ const ButtonContainer = styled.button`
   ${p => css`
     display: block;
     padding: 0.25rem 1.25rem;
+    background-color: ${p.colorScheme.background};
     background: ${p.colorScheme.background};
     color: ${p.colorScheme.color};
     font-weight: 500;
@@ -65,6 +66,7 @@ const ButtonContainer = styled.button`
     box-shadow: button;
 
     &:active {
+      background-color: ${p.colorScheme.activeBg};
       background: ${p.colorScheme.activeBg};
     }
   `}

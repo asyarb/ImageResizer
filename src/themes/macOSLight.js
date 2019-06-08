@@ -8,24 +8,20 @@ export const macOSLightTheme = {
   colors: {
     white: '#fff',
     black: 'rgb(28, 28, 28)',
-    window: {
-      100: 'rgb(240, 240, 240)',
-      90: 'rgb(236, 236, 236)',
-      80: 'rgb(227, 227, 227)',
-      70: 'rgb(215, 215, 216)',
-      60: 'rgb(206, 205, 206)',
-      40: 'rgb(135, 135, 135)',
-    },
-    gray: {
-      90: 'rgb(240, 240, 240)',
-      70: 'rgb(209, 209, 209)',
-      60: 'rgb(150, 150, 150)',
-    },
+    primaryTextColor: 'rgb(28, 28, 28)',
+    secondaryTextColor: 'rgb(134, 134, 134)',
+    secondaryButtonBg: 'rgb(255, 255, 255)',
+    arrowBg: 'rgb(150, 150, 150)',
+    secondaryButtonActive: 'rgb(240, 240, 240)',
+    fileLightBg: 'rgb(240, 240, 240)',
+    controlsBarBg: 'rgb(236, 236, 236)',
+    mainWindowBg: 'rgb(227, 227, 227)',
+    dropZoneBg: 'rgb(215, 215, 216)',
+    headerBgGradient: 'linear-gradient(rgb(227, 227, 227), rgb(206, 205, 206))',
     blue: {
       90: 'rgb(108, 179, 250)',
       80: 'rgb(8, 126, 255)',
       70: 'rgb(59, 120, 248)',
-
       60: 'rgb(76, 152, 254)',
       50: 'rgb(5, 100, 227)',
     },
@@ -77,6 +73,6 @@ export const macOSLightTheme = {
     midHigh:
       '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04',
     high: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-    inset: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.1)',
+    inset: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.2)',
   },
 }

@@ -4,7 +4,9 @@ import styled from '@xstyled/styled-components'
 import { useTrail, config } from 'react-spring'
 
 import { File } from './File'
-import { macOSLightTheme as lt } from '../themes/macOSLight'
+import { getCurrentTheme } from '../util/getCurrentTheme'
+
+const theme = getCurrentTheme()
 
 export const FileList = () => {
   const files = useStore(state => state.files)
@@ -48,7 +50,7 @@ const HeadingBar = styled.header`
   display: grid;
   place-items: center;
   border-bottom: windowBorder;
-  background: linear-gradient(${lt.colors.window[80]}, ${lt.colors.window[60]});
+  background: ${theme.colors.headerBgGradient};
 `
 
 const Files = styled.ul`
@@ -60,4 +62,5 @@ const Text = styled.h1`
   font-weight: 500;
   font-size: small;
   margin: 0 auto;
+  color: primaryTextColor;
 `

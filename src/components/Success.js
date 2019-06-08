@@ -59,10 +59,11 @@ const Heading = styled.h2`
 `
 
 const Text = styled.p`
-  color: black;
+  color: primaryTextColor;
   max-width: 30ch;
   text-align: center;
   margin: 0 auto;
   font-size: normal;
   line-height: copy;
+  font-weight: 500;
 `

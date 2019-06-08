@@ -40,6 +40,7 @@ const Label = styled.h2`
   font-size: medium;
   font-weight: 500;
   margin-top: 2rem;
+  color: primaryTextColor;
 `
 
 const Grid = styled.div`
