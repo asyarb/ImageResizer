@@ -1,10 +1,10 @@
 import React from 'react'
 import { ThemeProvider as ThemeProviderBase } from '@xstyled/styled-components'
 
-import { getCurrentTheme } from '../util/getCurrentTheme'
+import { useCurrentTheme } from '../hooks/useCurrentTheme'
 
-const theme = getCurrentTheme()
+export const ThemeProvider = ({ children }) => {
+  const theme = useCurrentTheme()
 
-export const ThemeProvider = ({ children }) => (
-  <ThemeProviderBase theme={theme}>{children}</ThemeProviderBase>
-)
+  return <ThemeProviderBase theme={theme}>{children}</ThemeProviderBase>
+}

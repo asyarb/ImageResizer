@@ -10,11 +10,11 @@ export const macOSDarkTheme = {
     secondaryButtonBg: 'rgb(104, 107, 108)',
     arrowBg: 'rgb(150, 150, 150)',
     secondaryButtonActive: 'rgb(123, 124, 125)',
-    fileLightBg: 'rgb(55, 59, 61)', //
-    controlsBarBg: 'rgb(54, 57, 59)', //
-    mainWindowBg: 'rgb(49, 51, 54)', //
-    dropZoneBg: 'rgb(34, 38, 43)', //
-    headerBgGradient: 'linear-gradient(rgb(66, 70, 73), rgb(54, 58, 60))', //
+    fileLightBg: 'rgb(55, 59, 61)',
+    controlsBarBg: 'rgb(54, 57, 59)',
+    mainWindowBg: 'rgb(49, 51, 54)',
+    dropZoneBg: 'rgb(34, 38, 43)',
+    headerBgGradient: 'linear-gradient(rgb(66, 70, 73), rgb(54, 58, 60))',
     blue: {
       90: 'rgb(108, 179, 250)',
       80: 'rgb(8, 126, 255)',

@@ -1,14 +1,13 @@
 import React from 'react'
 import { useStore } from 'easy-peasy'
-import styled from '@xstyled/styled-components'
+import styled, { css } from '@xstyled/styled-components'
 import { useTrail, config } from 'react-spring'
 
 import { File } from './File'
-import { getCurrentTheme } from '../util/getCurrentTheme'
-
-const theme = getCurrentTheme()
+import { useCurrentTheme } from '../hooks/useCurrentTheme'
 
 export const FileList = () => {
+  const theme = useCurrentTheme()
   const files = useStore(state => state.files)
 
   const animFiles = useTrail(files.length, {
@@ -19,7 +18,7 @@ export const FileList = () => {
 
   return (
     <FileListContainer>
-      <HeadingBar>
+      <HeadingBar theme={theme}>
         <Text>Pending Images</Text>
       </HeadingBar>
 
@@ -47,10 +46,12 @@ const FileListContainer = styled.div`
 `
 
 const HeadingBar = styled.header`
-  display: grid;
-  place-items: center;
-  border-bottom: windowBorder;
-  background: ${theme.colors.headerBgGradient};
+  ${p => css`
+    display: grid;
+    place-items: center;
+    border-bottom: windowBorder;
+    background: ${p.theme.colors.headerBgGradient};
+  `}
 `
 
 const Files = styled.ul`

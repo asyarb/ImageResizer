@@ -1,18 +1,20 @@
 const { remote } = require('electron')
+const { systemPreferences } = remote
 
 process.once('loaded', () => {
   if (process.platform === 'darwin') {
-    const { systemPreferences } = remote
-
     const setTheme = () => {
+      const event = new Event('storage')
       localStorage.setItem(
         'osTheme',
         systemPreferences.isDarkMode() ? 'dark' : 'light'
       )
+
+      window.dispatchEvent(event)
     }
 
     systemPreferences.subscribeNotification(
-      'AppleInterfacethemeChangedNotification',
+      'AppleInterfaceThemeChangedNotification',
       setTheme
     )
 
