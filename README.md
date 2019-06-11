@@ -1,4 +1,9 @@
+# 🖼 Image Resizer
+
+## Table of Contents
+
 - [🖼 Image Resizer](#%F0%9F%96%BC-image-resizer)
+  - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
   - [Features](#features)
   - [Stack and stuff used](#stack-and-stuff-used)
@@ -7,8 +12,6 @@
     - [xStyled](#xstyled)
     - [Easy-Peasy](#easy-peasy)
     - [Lottie, react-spring](#lottie-react-spring)
-
-# 🖼 Image Resizer
 
 An Electron app built with React for client-side image resizing leveraging WASM. All provided images are resized and written to the current user's download directory.
 
