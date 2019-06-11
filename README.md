@@ -1,9 +1,9 @@
 # 🖼 Image Resizer
 
-## Table of Contents
+### Table of Contents
 
 - [🖼 Image Resizer](#%F0%9F%96%BC-image-resizer)
-  - [Table of Contents](#table-of-contents)
+    - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
   - [Features](#features)
   - [Stack and stuff used](#stack-and-stuff-used)
