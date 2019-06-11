@@ -28,18 +28,18 @@
     }
   },
   "dependencies": {
-    "@xstyled/styled-components": "^1.1.1",
+    "@xstyled/styled-components": "^1.2.0",
     "asyncro": "^3.0.0",
     "easy-peasy": "^2.3.3",
     "electron-is-dev": "^1.1.0",
-    "minireset.css": "^0.0.4",
+    "minireset.css": "^0.0.5",
     "pica": "^5.0.0",
     "pretty-bytes": "^5.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-lottie": "^1.2.3",
-    "react-scripts": "3.0.0",
-    "react-spring": "^8.0.22",
+    "react-scripts": "3.0.1",
+    "react-spring": "^8.0.23",
     "styled-components": "^4.3.1"
   },
   "devDependencies": {
@@ -47,10 +47,10 @@
     "@rescripts/rescript-env": "^0.0.10",
     "babel-plugin-styled-components": "^1.10.0",
     "concurrently": "^4.1.0",
-    "electron": "^5.0.0",
-    "electron-builder": "^20.39.0",
-    "prettier": "^1.18.0",
-    "typescript": "^3.4.5",
+    "electron": "^5.0.3",
+    "electron-builder": "^20.43.0",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.1",
     "wait-on": "^3.2.0"
   },
   "scripts": {
