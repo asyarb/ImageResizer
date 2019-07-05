@@ -1,13 +1,17 @@
-const electron = require('electron')
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
-
-const path = require('path')
+const { app, BrowserWindow } = require('electron')
+const { autoUpdater } = require('electron-updater')
 const isDev = require('electron-is-dev')
+const log = require('electron-log')
+const path = require('path')
+
+autoUpdater.logger = log
+autoUpdater.logger.transports.file.level = 'info'
+log.info('App starting...')
 
 let mainWindow
 
 const createWindow = () => {
+  autoUpdater.checkForUpdatesAndNotify()
   mainWindow = new BrowserWindow({
     width: 600,
     height: 480,
