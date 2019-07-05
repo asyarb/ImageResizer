@@ -64,6 +64,7 @@ export const DropZone = props => {
     >
       <Heading style={animProps}>
         Drop images here, or <Label htmlFor="file">browse</Label> for files.
+        Version 1.0.2
       </Heading>
 
       <Input
