@@ -7,22 +7,20 @@ import animationJson from '../assets/checked-lottie.json'
 export const Success = () => {
   return (
     <SuccessContainer>
-      <LottieContainer>
-        <Lottie
-          options={{
-            loop: false,
-            autoplay: true,
-            animationData: animationJson,
-            rendererSettings: {
-              preserveAspectRatio: 'xMidYMid slice',
-            },
-          }}
-          height={200}
-          width={250}
-          isStopped={false}
-          isPaused={false}
-        />
-      </LottieContainer>
+      <Lottie
+        options={{
+          loop: false,
+          autoplay: true,
+          animationData: animationJson,
+          rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice',
+          },
+        }}
+        height={150}
+        width={250}
+        isStopped={false}
+        isPaused={false}
+      />
       <Message>
         <Heading>Success!</Heading>
         <Text>Your images are in your downloads folder.</Text>
@@ -36,13 +34,6 @@ const SuccessContainer = styled.div`
   grid-template-rows: 1fr;
   place-items: end center;
   height: 100%;
-`
-
-const LottieContainer = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 35%;
-  transform: translate(-50%, -35%);
 `
 
 const Message = styled.div`

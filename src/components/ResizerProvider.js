@@ -16,7 +16,7 @@ const STAGE_ENUM = {
 const { INIT, RESIZING, UPLOADED_FILES, FINISHED } = STAGE_ENUM
 
 const state = {
-  stage: INIT,
+  stage: FINISHED,
   files: [],
   resizeWidth: 2000,
 }

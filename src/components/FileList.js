@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStore } from 'easy-peasy'
+import { useStoreState } from 'easy-peasy'
 import styled, { css } from '@xstyled/styled-components'
 import { useTrail, config } from 'react-spring'
 
@@ -8,7 +8,7 @@ import { useCurrentTheme } from '../hooks/useCurrentTheme'
 
 export const FileList = () => {
   const theme = useCurrentTheme()
-  const files = useStore(state => state.files)
+  const files = useStoreState(state => state.files)
 
   const animFiles = useTrail(files.length, {
     from: { transform: 'translate3d(-40px, 0, 0)', opacity: 0 },

@@ -45,9 +45,9 @@
     }
   },
   "dependencies": {
-    "@xstyled/styled-components": "^1.5.2",
+    "@xstyled/styled-components": "^1.7.0",
     "asyncro": "^3.0.0",
-    "easy-peasy": "^2.3.3",
+    "easy-peasy": "^2.6.5",
     "electron-is-dev": "^1.1.0",
     "electron-log": "^3.0.6",
     "electron-updater": "^4.0.14",
@@ -57,18 +57,18 @@
     "react-dom": "^16.8.6",
     "react-lottie": "^1.2.3",
     "react-scripts": "3.0.1",
-    "react-spring": "^8.0.23",
+    "react-spring": "^8.0.27",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "@rescripts/cli": "^0.0.10",
     "@rescripts/rescript-env": "^0.0.10",
     "babel-plugin-styled-components": "^1.10.6",
-    "concurrently": "^4.1.0",
+    "concurrently": "^4.1.1",
     "electron": "^5.0.6",
     "electron-builder": "^20.44.4",
     "prettier": "^1.18.2",
-    "typescript": "^3.5.1",
+    "typescript": "^3.5.2",
     "wait-on": "^3.2.0"
   },
   "eslintConfig": {

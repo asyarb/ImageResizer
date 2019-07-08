@@ -1,13 +1,13 @@
 import React from 'react'
-import { useStore, useActions } from 'easy-peasy'
+import { useStoreState, useStoreActions } from 'easy-peasy'
 import styled from '@xstyled/styled-components'
 import { useSpring, a, config } from 'react-spring'
 
 import { ReactComponent as ArrowIconBG } from '../assets/arrow-down-circle.svg'
 
 export const DropZone = props => {
-  const stage = useStore(state => state.stage)
-  const { setStage, setFiles } = useActions(actions => ({
+  const stage = useStoreState(state => state.stage)
+  const { setStage, setFiles } = useStoreActions(actions => ({
     setStage: actions.setStage,
     setFiles: actions.setFiles,
   }))

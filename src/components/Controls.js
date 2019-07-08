@@ -1,17 +1,19 @@
 import React from 'react'
-import { useStore, useActions } from 'easy-peasy'
+import { useStoreState, useStoreActions } from 'easy-peasy'
 import styled from '@xstyled/styled-components'
 
 import { Button } from '../components/Button'
 
 export const Controls = () => {
-  const { resizeFiles, setResizeWidth, resetFiles } = useActions(actions => ({
-    resizeFiles: actions.resizeFiles,
-    setResizeWidth: actions.setResizeWidth,
-    resetFiles: actions.resetFiles,
-  }))
+  const { resizeFiles, setResizeWidth, resetFiles } = useStoreActions(
+    actions => ({
+      resizeFiles: actions.resizeFiles,
+      setResizeWidth: actions.setResizeWidth,
+      resetFiles: actions.resetFiles,
+    })
+  )
 
-  const { stage, resizeWidth } = useStore(state => ({
+  const { stage, resizeWidth } = useStoreState(state => ({
     stage: state.stage,
     resizeWidth: state.resizeWidth,
   }))

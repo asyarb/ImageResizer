@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStore } from 'easy-peasy'
+import { useStoreState } from 'easy-peasy'
 import styled from '@xstyled/styled-components'
 
 import { FileList } from './FileList'
@@ -8,7 +8,7 @@ import { Spinner } from './Spinner'
 import { Success } from './Success'
 
 export const FileDropZone = props => {
-  const stage = useStore(state => state.stage)
+  const stage = useStoreState(state => state.stage)
   const isShowingDropZone = ['INIT', 'DRAGGING_OVER'].includes(stage)
 
   return (
