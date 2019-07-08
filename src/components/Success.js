@@ -6,38 +6,47 @@ import animationJson from '../assets/checked-lottie.json'
 
 export const Success = () => {
   return (
-    <SuccessContainer>
-      <Lottie
-        options={{
-          loop: false,
-          autoplay: true,
-          animationData: animationJson,
-          rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice',
-          },
-        }}
-        height={150}
-        width={250}
-        isStopped={false}
-        isPaused={false}
-      />
-      <Message>
-        <Heading>Success!</Heading>
-        <Text>Your images are in your downloads folder.</Text>
-      </Message>
-    </SuccessContainer>
+    <Container>
+      <SuccessContainer>
+        <Lottie
+          options={{
+            loop: false,
+            autoplay: true,
+            animationData: animationJson,
+            rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice',
+            },
+          }}
+          height={150}
+          width={250}
+          isStopped={false}
+          isPaused={false}
+        />
+        <Message>
+          <Heading>Success!</Heading>
+          <Text>Your images are in your downloads folder.</Text>
+        </Message>
+      </SuccessContainer>
+    </Container>
   )
 }
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+`
+
 const SuccessContainer = styled.div`
   display: grid;
-  grid-template-rows: 1fr;
-  place-items: end center;
-  height: 100%;
+  grid-template-rows: auto 1fr;
+  place-items: center;
 `
 
 const Message = styled.div`
-  padding-bottom: 18%;
   text-align: center;
 `
 
