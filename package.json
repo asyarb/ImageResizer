@@ -20,6 +20,10 @@
     "release": "yarn electron-build -p always"
   },
   "build": {
+    "afterSign": "scripts/notarize.js",
+    "dmg": {
+      "sign": false
+    },
     "publish": [
       {
         "provider": "github",
@@ -30,11 +34,14 @@
     "nsis": {
       "oneClick": true
     },
-    "appId": "com.ayarbrough.image-resizer",
+    "appId": "com.walltowall.image-resizer",
     "productName": "ImageResizer",
     "copyright": "Copyright © 2019 ${author}",
     "mac": {
-      "category": "public.app-category.utilities"
+      "category": "public.app-category.utilities",
+      "hardenedRuntime": true,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
     },
     "files": [
       "build/**/*",
@@ -65,8 +72,10 @@
     "@rescripts/rescript-env": "^0.0.10",
     "babel-plugin-styled-components": "^1.10.6",
     "concurrently": "^4.1.1",
+    "dotenv": "^8.0.0",
     "electron": "^5.0.6",
     "electron-builder": "^20.44.4",
+    "electron-notarize": "^0.1.1",
     "prettier": "^1.18.2",
     "typescript": "^3.5.2",
     "wait-on": "^3.2.0"
