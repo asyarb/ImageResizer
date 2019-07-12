@@ -7,6 +7,8 @@ import fs from 'fs'
 import os from 'os'
 import path from 'path'
 
+import { LARGE_SIZE } from '../constants'
+
 const STAGE_ENUM = {
   INIT: 'INIT',
   RESIZING: 'RESIZING',
@@ -18,7 +20,7 @@ const { INIT, RESIZING, UPLOADED_FILES, FINISHED } = STAGE_ENUM
 const state = {
   stage: INIT,
   files: [],
-  resizeWidth: 2000,
+  resizeWidth: LARGE_SIZE,
 }
 
 const actions = {

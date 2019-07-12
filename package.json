@@ -52,14 +52,14 @@
     }
   },
   "dependencies": {
-    "@xstyled/styled-components": "^1.7.0",
+    "@xstyled/styled-components": "^1.8.3",
     "asyncro": "^3.0.0",
-    "easy-peasy": "^2.6.5",
+    "easy-peasy": "^2.6.6",
     "electron-is-dev": "^1.1.0",
     "electron-log": "^3.0.6",
-    "electron-updater": "^4.0.14",
+    "electron-updater": "^4.1.2",
     "minireset.css": "^0.0.5",
-    "pica": "^5.0.0",
+    "pica": "^5.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-lottie": "^1.2.3",

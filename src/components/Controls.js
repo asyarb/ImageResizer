@@ -3,6 +3,7 @@ import { useStoreState, useStoreActions } from 'easy-peasy'
 import styled from '@xstyled/styled-components'
 
 import { Button } from '../components/Button'
+import { LARGE_SIZE, SMALL_SIZE } from '../constants'
 
 export const Controls = () => {
   const { resizeFiles, setResizeWidth, resetFiles } = useStoreActions(
@@ -30,14 +31,14 @@ export const Controls = () => {
         {isShowingControls && (
           <>
             <LargeToggle
-              onClick={() => setResizeWidth(2000)}
-              type={resizeWidth === 2000 ? 'primary' : 'secondary'}
+              onClick={() => setResizeWidth(LARGE_SIZE)}
+              type={resizeWidth === LARGE_SIZE ? 'primary' : 'secondary'}
             >
               Large
             </LargeToggle>
             <Button
-              onClick={() => setResizeWidth(500)}
-              type={resizeWidth === 500 ? 'primary' : 'secondary'}
+              onClick={() => setResizeWidth(SMALL_SIZE)}
+              type={resizeWidth === SMALL_SIZE ? 'primary' : 'secondary'}
             >
               Small
             </Button>
