@@ -1,19 +1,12 @@
-# Image Resizer
+# Image Resizer <!-- omit in toc -->
 
 An Electron app built with React for client-side image resizing leveraging WASM. All provided images are resized and written to the current user's download directory.
 
 ### Table of Contents
 
-- [Image Resizer](#image-resizer)
-    - [Table of Contents](#table-of-contents)
-  - [Getting Started](#getting-started)
-  - [Features](#features)
-  - [Stack and stuff used](#stack-and-stuff-used)
-    - [Electron](#electron)
-    - [React](#react)
-    - [xStyled](#xstyled)
-    - [Easy-Peasy](#easy-peasy)
-    - [Lottie, react-spring](#lottie-react-spring)
+- [Getting Started](#Getting-Started)
+- [Features](#Features)
+- [Building a release](#Building-a-release)
 
 ## Getting Started
 
@@ -27,24 +20,18 @@ An Electron app built with React for client-side image resizing leveraging WASM.
 - WASM based image resizing. Runs client side only. Could be easily adapted to work on the web.
 - Dark mode support. Listens to dark mode preference changes in realtime.
 
-## Stack and stuff used
+## Building a release
 
-### Electron
+To test if a build will compile, run:
 
-JavaScript framework for building desktop applications. Builds are performed by [`electron-builder`](https://www.electron.build/).
+```bash
+yarn compile
+```
 
-### React
+To publish a release to GitHub for auto-update support, run:
 
-Declarative JS UI framework.
+```bash
+yarn release
+```
 
-### xStyled
-
-CSS-in-JS solution based on `styled-system` and `styled-components`. Allows for direct referencing of `theme` values in your `css` template literals. See their [docs](https://github.com/smooth-code/xstyled)
-
-### Easy-Peasy
-
-Abstraction over Redux with a simple API. See their [docs](https://github.com/ctrlplusb/easy-peasy).
-
-### Lottie, react-spring
-
-Animation libraries.
+After the app has been signed, built, and notarized, navigate to the releases section of this repo and publish the release. Users of the app will now automatically update their app when a release is published in this fashion.
