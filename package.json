@@ -1,6 +1,6 @@
 {
   "name": "image-resizer",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",
@@ -17,6 +17,7 @@
     "preelectron-build": "yarn build",
     "electron-build": "build --mac --win",
     "compile": "yarn electron-build",
+    "prerelease": "yarn version --strict-semver",
     "release": "yarn electron-build -p always"
   },
   "build": {
